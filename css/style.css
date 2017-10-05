@@ -1,7 +1,62 @@
 body {
-  background-color: blue;
+  padding: 70px;
+  font-family: 'Titillium Web', sans-serif;
+  font-style: italic;
 }
 
 div {
-  border: 2px solid black;
+  text-align: center;
+}
+
+h1{
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: white;
+}
+
+div.page-header{
+  background-color: blue;
+  font-size: 36px;
+  border-radius: 10px;
+  padding-bottom: 0;
+  margin-bottom: 5px;
+}
+
+.btn-group{
+  margin-top: 5px;
+}
+
+.era {
+  float: right;
+}
+
+.pad {
+  border-radius: 20px;
+  box-sizing: inherit;
+}
+
+.difficulty {
+  float: left;
+}
+
+.col-xs-6{
+  width:25%;
+  padding:23%;
+  margin: 2%;
+}
+
+#pad1{
+  background-color: green;
+}
+
+#pad2{
+  background-color: yellow;
+}
+
+#pad3{
+  background-color: red;
+}
+
+#pad4{
+  background-color: Blue;
 }
