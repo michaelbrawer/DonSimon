@@ -12,18 +12,13 @@ $(document).ready(function() {
 
 });
 
-//Gamestate:
+//Initiaize Gamestate:
 
 //constants:
 //activeTurn;
 //simonTurns;
 //userTurns;
 //timeCount;
-
-//
-
-//era toggle selects soundset
-//Normal/Expert toggles setTimeout interval
 
 //spacebar to begin...
 
@@ -33,11 +28,13 @@ $(document).ready(function() {
 
 //Generate Simon Turn Array push string output by random.
 
-// loop through array & render pad states accordingly
+// increment through array & render pad states accordingly
 
 //howlerJS plays back corresponding sounds
 
 //setTimeout interval between index renders according to difficulty set by user in Normal/Expert Button
+
+//restore render default pad state 
 
 //upon playback completion, start user timer countdown (inc. human turn slop)
 
@@ -63,7 +60,13 @@ $(document).ready(function() {
 //wait for spacebar to begin...
 
 //icebox:
-//custom soundsets
 //PaperJs render animations for button flash
+
+//special layout for mobile w. clicks / minimal ui
+////Normal/Expert toggles setTimeout interval
+//flash state === keydown duration
+//era toggle selects soundset
+//custom soundsets
+
 //map styling to buchla 223
 //multiple sountsets

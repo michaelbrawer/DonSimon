@@ -30,19 +30,6 @@ span.text-muted {
   max-width: 500px;
 }
 
-.btn-group{
-  margin-top: 5px;
-  color: white;
-}
-
-.mode{
-  background-color: rgba(55, 71, 79,1.0);
-}
-
-.soundset{
-  background-color: rgba(96, 125, 139,1.0);
-}
-
 .pad {
   border-radius: 20px;
   box-sizing: inherit;
@@ -52,8 +39,17 @@ span.text-muted {
   
 }
 
-.difficulty {
-  float: left;
+.soundset{
+  background-color: rgba(96, 125, 139,1.0);
+}
+
+.btn-group{
+  margin-top: 5px;
+  color: white;
+}
+
+.mode{
+  background-color: rgba(55, 71, 79,1.0);
 }
 
 .footer {
@@ -77,3 +73,6 @@ span.text-muted {
 #pad4{
   background-color: rgba(21, 101, 192,1.0);
 }
+
+/* pads flash state */
+
