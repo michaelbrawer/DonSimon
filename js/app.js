@@ -14,6 +14,14 @@ $(document).ready(function() {
 
 //Gamestate:
 
+//constants:
+//activeTurn;
+//simonTurns;
+//userTurns;
+//timeCount;
+
+//
+
 //era toggle selects soundset
 //Normal/Expert toggles setTimeout interval
 
@@ -23,25 +31,29 @@ $(document).ready(function() {
 
 //Generate Simon Array length of turn -> initialize @ 1 -> force random into .25 increment, to String, returning '1', '2', '3', '4'
 
-//Render Simon Turn Array from index[0]
+//Generate Simon Turn Array push string output by random.
 
-// loop through array & flash pad states accordingly
+// loop through array & render pad states accordingly
 
 //howlerJS plays back corresponding sounds
 
-//setTimeout interval between renders according to difficulty set by user in Normal/Expert Button
+//setTimeout interval between index renders according to difficulty set by user in Normal/Expert Button
+
+//upon playback completion, start user timer countdown (inc. human turn slop)
 
 
 //userTurn
 
-//Start coundown to turn timeout of interval*length of turn + some slop for human
+//render display "go player"
 
 //while...
-//4 different keys return '1', '2', '3', '4' correspondingly
+//4 different keys return pushing  '1', '2', '3', '4' correspondingly to userTurn array
+
 //render pad flash
 
 //upon keypress check for match with index of Simon Array
 //if match playback "match" howl
+
 //increment simonTurn length +1
 //getSimonTurn...
 
@@ -49,3 +61,9 @@ $(document).ready(function() {
 //render 'lose' state, set SimonTurn to []
 
 //wait for spacebar to begin...
+
+//icebox:
+//custom soundsets
+//PaperJs render animations for button flash
+//map styling to buchla 223
+//multiple sountsets

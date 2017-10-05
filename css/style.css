@@ -1,7 +1,6 @@
 body {
-  padding: 70px;
+  padding: 0px 50px 10px 50px;
   font-family: 'Titillium Web', sans-serif;
-  font-style: italic;
 }
 
 div {
@@ -12,10 +11,11 @@ h1{
   margin-bottom: 0;
   padding-bottom: 0;
   color: white;
+
 }
 
 div.page-header{
-  background-color: grey;
+  background-color: rgba(96, 125, 139,1.0);
   font-size: 36px;
   border-radius: 10px;
   padding-bottom: 0;
@@ -26,46 +26,54 @@ span.text-muted {
   font-size: 22px;
 }
 
+.container{
+  max-width: 500px;
+}
+
 .btn-group{
-  margin-top:0 auto;
+  margin-top: 5px;
+  color: white;
 }
 
 .mode{
-  background-color: grey;
+  background-color: rgba(55, 71, 79,1.0);
 }
 
-
-.era {
-  float: right;
+.soundset{
+  background-color: rgba(96, 125, 139,1.0);
 }
 
 .pad {
   border-radius: 20px;
   box-sizing: inherit;
+  width:25%;
+  padding:23%;
+  margin: 2%;
+  
 }
 
 .difficulty {
   float: left;
 }
 
-.col-xs-6{
-  width:25%;
-  padding:23%;
-  margin: 2%;
+.footer {
+  margin-bottom: 10px;
 }
+
+/* off colors state  material ui level 800 */
 
 #pad1{
-  background-color: green;
+  background-color: rgba(46, 125, 50,1.0);
 }
 
-#pad2{
-  background-color: yellow;
+#pad2 {
+  background-color: rgba(249, 168, 37,1.0)
 }
 
 #pad3{
-  background-color: red;
+  background-color: rgba(198, 40, 40,1.0);
 }
 
 #pad4{
-  background-color: Blue;
+  background-color: rgba(21, 101, 192,1.0);
 }
