@@ -22,13 +22,18 @@ div.page-header{
   margin-bottom: 5px;
 }
 
-.btn-group{
-  margin-top: 5px;
+span.text-muted {
+  font-size: 22px;
 }
 
-.btn.spacebar{
-  float: center;
+.btn-group{
+  margin-top:0 auto;
 }
+
+.mode{
+  background-color: grey;
+}
+
 
 .era {
   float: right;
