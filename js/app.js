@@ -10,7 +10,7 @@ var simonData;
 //duration for countdown timer
 var countDown;
 //holds keydown data
-var keypress;
+var keyPress;
 
 
 
@@ -25,16 +25,22 @@ $(document).ready(function () {
   /*----- cached element references -----*/
 
   /*----- event listeners -----*/
-  $('body').on('keydown', function(evt){
+
+  var keyListener = $('body').on('keydown', function(evt){
     if (event.keyCode == 84){
-      console.log('enter press T');
+      console.log('enter press T')
+      userData = "pad1";
     } else if (event.keyCode == 71){
       console.log('enter press G');
+      userData = "pad2";
     } else if (event.keyCode == 89){
       console.log('enter press Y'); 
+      userData = "pad3";
     } else if (event.keyCode == 72){
       console.log('enter press H');
+      userData = "pad4";
     }
+    checkClick();
   })
   /*----- functions -----*/
   //Initiaize Gamestate:
@@ -85,6 +91,10 @@ function goodClick() {
 
 function badClick() {
   console.log('bad click');
+}
+
+function dummyData(){
+  simonData = ["pad3", "pad1", "pad2", "pad4",]
 }
 
 init();
