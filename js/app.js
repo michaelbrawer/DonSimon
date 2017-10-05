@@ -7,7 +7,7 @@
 var simonCount;
 //stores Simon Array
 var simonData;
-//increments with every pad press;
+//duration for countdown timer
 var countDown;
 
 $(document).ready(function () {
@@ -51,13 +51,21 @@ function getSimonData() {
   }
 }
 
-function checkClick(){
-  if (userData === simonData[simonCount -1]){
-    console.log('good click')
-    userTurn + 1;
+function checkClick() {
+  if (userData === simonData[simonCount - 1]) {
+    goodClick();
   } else {
-    console.log('bad click')
+    badClick();
   }
+}
+
+function goodClick() {
+  console.log('good click')
+  simonCount += 1;
+}
+
+function badClick() {
+
 }
 
 init();
