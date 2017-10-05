@@ -1,24 +1,69 @@
-$(document).ready(function() {
+/*----- constants -----*/
 
-  /*----- constants -----*/
 
-  /*----- app's state (variables) -----*/
+
+/*----- app's state (variables) -----*/
+//sets length of turn
+var simonCount;
+//stores Simon Array
+var simonData;
+//increments with every pad press;
+var countDown;
+
+$(document).ready(function () {
+  // ************************
 
   /*----- cached element references -----*/
 
   /*----- event listeners -----*/
 
   /*----- functions -----*/
+  //Initiaize Gamestate:
 
+
+
+
+  // ************************
 });
+// ************************
 
-//Initiaize Gamestate:
+//functions
 
+function init() {
+  simonCount = 1
+  userTurn = 0;
+  userData = ''
+  simonData = [];
+}
+
+function getSimonData() {
+  for (var i = 0; i < simonCount; i++) {
+    var randInt = Math.random();
+    if (randInt > .75) {
+      simonData.push("pad1");
+    } else if (randInt > .5) {
+      simonData.push("pad2");
+    } else if (randInt > .25) {
+      simonData.push("pad3");
+    } else {
+      simonData.push("pad4")
+    }
+  }
+}
+
+function checkClick(){
+  if (userData === simonData[simonCount -1]){
+    console.log('good click')
+    userTurn + 1;
+  } else {
+    console.log('bad click')
+  }
+}
+
+init();
 //constants:
 //activeTurn;
-//simonTurns;
-//userTurns;
-//timeCount;
+//keydata{};
 
 //spacebar to begin...
 
@@ -44,15 +89,18 @@ $(document).ready(function() {
 //render display "go player"
 
 //while...
-//4 different keys return pushing  '1', '2', '3', '4' correspondingly to userTurn array
+//4 different keys return pushing  'pad1', 'pad2', 'pad3', 'pad4' correspondingly to userTurn array
+//check return against SimonTurn[playerTurn]
+//increment playerturn+
 
 //render pad flash
 
 //upon keypress check for match with index of Simon Array
 //if match playback "match" howl
 
-//increment simonTurn length +1
+//if playerturn > simonturn.length, get simonturnlength+1
 //getSimonTurn...
+
 
 //ifmismatch - user loses
 //render 'lose' state, set SimonTurn to []
@@ -69,4 +117,5 @@ $(document).ready(function() {
 //custom soundsets
 
 //map styling to buchla 223
+
 //multiple sountsets

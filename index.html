@@ -2,15 +2,18 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/app.js" charset="utf-8"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+ 
   <title>DonSimon</title>
 </head>
+
 <body>
 
 
@@ -27,16 +30,15 @@
       <div class="pad col-xs-6" id="pad4">PAD4</div>
     </div>
     <div class="btn-group" role="group" aria-label="...">
-      <button type="button" class="soundset btn btn-secondary">2004</button>
-      <button type="button" class="soundset btn btn-secondary">1965</button>
-      <button type="button" class="soundset btn btn-secondary">1973</button>
+      <button type="button" name="soundsets" class="soundset btn btn-secondary">2004</button>
+      <button type="button" name="soundsets" class="soundset btn btn-secondary">1965</button>
+      <button type="button" name="soundsets" class="soundset btn btn-secondary">1973</button>
     </div>
     <div class="btn-group" role="group" aria-label="...">
-      <button type="button" class="mode btn btn-secondary">Normal</button>
-      <button type="button" class="mode btn btn-secondary">Expert</button>
+      <button type="button radio" name="difficulty" class="mode btn btn-secondary">Normal</button>
+      <button type="button radio" name="difficulty" class="mode btn btn-secondary">Expert</button>
     </div>
   </div>
-
     <footer class="footer">
       <div class="container">
         <span id="display" class="text-muted">Press Spacebar to Begin</span>
