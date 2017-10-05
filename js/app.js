@@ -9,14 +9,33 @@ var simonCount;
 var simonData;
 //duration for countdown timer
 var countDown;
+//holds keydown data
+var keypress;
+
+
+
+//jquery wrapper function
+
 
 $(document).ready(function () {
+
+
   // ************************
 
   /*----- cached element references -----*/
 
   /*----- event listeners -----*/
-
+  $('body').on('keydown', function(evt){
+    if (event.keyCode == 84){
+      console.log('enter press T');
+    } else if (event.keyCode == 71){
+      console.log('enter press G');
+    } else if (event.keyCode == 89){
+      console.log('enter press Y'); 
+    } else if (event.keyCode == 72){
+      console.log('enter press H');
+    }
+  })
   /*----- functions -----*/
   //Initiaize Gamestate:
 
@@ -46,7 +65,7 @@ function getSimonData() {
     } else if (randInt > .25) {
       simonData.push("pad3");
     } else {
-      simonData.push("pad4")
+      simonData.push("pad4");
     }
   }
 }
@@ -60,15 +79,18 @@ function checkClick() {
 }
 
 function goodClick() {
-  console.log('good click')
+  console.log('good click');
   simonCount += 1;
 }
 
 function badClick() {
-
+  console.log('bad click');
 }
 
 init();
+
+
+
 //constants:
 //activeTurn;
 //keydata{};
