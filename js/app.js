@@ -10,13 +10,13 @@ var simonData;
 //duration for countdown timer
 var countDown;
 //holds keydown data
-var keyPress;
 var userData;
+// holds count of user presses
 var userCount;
 
 
 
-//jquery wrapper function
+//jQuery wrapper function
 
 $(document).ready(function () {
 
@@ -44,8 +44,10 @@ $(document).ready(function () {
       console.log('enter press H');
       userData = "pad4";
       checkClick();
+    } else if (event.keyCode == 32){
+      //initialze app.
+      init();
     }
-    
   })
 
   // ************************
@@ -53,7 +55,7 @@ $(document).ready(function () {
 // ************************
 
  /*----- functions -----*/
-  //Initiaize Gamestate:
+  //Sets initial Gamestate:
 function init() {
   simonCount = 1
   userTurn = 0;
@@ -116,7 +118,7 @@ function dummyData(){
   simonData = ["pad3", "pad1", "pad2", "pad4",]
 }
 
-init();
+
 
 
 
