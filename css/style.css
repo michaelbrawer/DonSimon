@@ -90,16 +90,16 @@ span.text-muted {
 }
 
 .pad4Flash {
-  background-color: rgba(21, 101, 192,1.0)
+  background-color: rgba(21, 101, 192,1.0);
 }
 
 .winner {
   background-color: white;
-  
+
 }
 
 .loser {
-  background-color: rgba(55, 71, 79,1.0)
+  background-color: rgba(55, 71, 79,1.0);
 }
 
 /* .winner {
