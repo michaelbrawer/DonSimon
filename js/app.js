@@ -17,7 +17,7 @@ var userCount;
 var flashTime;
 var gameOn = false;
 var timerDuration;
-
+var timer;
 
 
 //jQuery wrapper function
@@ -73,13 +73,14 @@ $(document).ready(function () {
   //Sets initial Gamestate:
 function init() {
   simonCount = 1
-  timerDuration = (1200 * simonCount)+1000;
+  timerDuration = (1400 * simonCount) +200;
   userTurn = 0;
   // userData = ''
   simonData = [];
   userCount = 0;
   flashTime = 400;
   gameOn = true;
+  
   $('.pad').removeClass('loser');
   getSimonData();
 }
@@ -87,7 +88,7 @@ function init() {
 //generate random data;
 function getSimonData() {
   $('#display').text('Simon Turn')
-
+  
   for (var i = 0; i < simonCount; i++) {
     var randInt = Math.random();
     if (randInt > 0.75) {
@@ -96,15 +97,17 @@ function getSimonData() {
       simonData.push("pad2");
     } else if (randInt > 0.25) {
       simonData.push("pad3");
-    } else {
+    } else { 
       simonData.push("pad4");
     }
   }
   console.log(simonData);
   renderSimonData();
+  
 }
 
 function renderSimonData(){
+  setTimeout(startTimer, timerDuration)
   var offset = 200;
    for (var i = 0; i < simonData.length; i++){
       if (simonData[i] === 'pad1'){
@@ -137,12 +140,13 @@ function checkClick() {
 function winCheck(){
   if (userCount === simonData.length){
     nextStage();
+    window.clearTimeout(startTimer);
   }
 }
 // if bad click... 
 function badClick() {
   console.log('bad click');
-       
+  window.clearTimeout(timer);
   $('.pad').toggleClass('loser');
   $('#display').text('play again? - click spacebar')
   gameOn = false;
@@ -150,7 +154,10 @@ function badClick() {
   // starts countDown for user turn
 function startTimer(){
   $('#display').text('user turn');
-  setTimeout(badClick, (timerDuration + 2600));
+  window.clearTimeout(timer);
+  
+  timer = window.setTimeout(badClick, timerDuration + 2000)
+  // setTimeout(badClick, (timerDuration + 2600));
 }
 
 function padOneFlash(){
@@ -186,15 +193,16 @@ function nextStage(){
   simonData = [];
   userCount = 0;
   simonCount += 1;
-  
   console.log('next stage');
   
   // $('.pad').toggleClass('winner');
   // setTimeout(function(){
   //   $('.pad4').toggleClass('winner');
   // }, flashTime)
+  window.clearTimeout(timer);
   setTimeout(getSimonData, flashTime*2);
 }
+
 
 
 //keydata{};
