@@ -15,6 +15,7 @@ var userData;
 var userCount;
 //duration for flash animation in ms
 var flashTime;
+var gameOn;
 
 
 
@@ -71,7 +72,7 @@ function init() {
   simonData = [];
   userCount = 0;
   flashTime = 400;
-  
+  gameOn = true;
   $('.pad').removeClass('loser');
   getSimonData();
 }
@@ -91,11 +92,13 @@ function getSimonData() {
     }
   }
   console.log(simonData);
+  $('#display').text('Simon Turn');
   renderSimonData();
 }
 
 function renderSimonData(){
-  var offset = 0;
+  var offset = 200;
+  $('#display').text('Simon Turn');
    for (var i = 0; i < simonData.length; i++){
       if (simonData[i] === 'pad1'){
         setTimeout(padOneFlash, (flashTime + offset))
@@ -107,6 +110,9 @@ function renderSimonData(){
         setTimeout(padFourFlash, (flashTime + offset))
       }
       offset += (flashTime*1.5);
+      if (i === simonData.length -1){
+        $('#display').text('Simon Turn');
+      }
    }
 }
 
@@ -134,7 +140,7 @@ function badClick() {
   console.log('bad click');
       init();
   $('.pad').toggleClass('loser');
-  
+  $('#display').text('play again? - click spacebar')
 }
 
 function padOneFlash(){
@@ -171,19 +177,10 @@ function nextStage(){
   userCount = 0;
   simonCount += 1;
   console.log('next stage');
-  setTimeout(getSimonData, flashTime);
-}
-//generate dummy data for testing...
-function dummyData(){
-  simonData = ["pad3", "pad1", "pad2", "pad4",]
+  setTimeout(getSimonData, flashTime*2);
 }
 
 
-
-
-
-//constants:
-//activeTurn;
 //keydata{};
 
 //spacebar to begin...

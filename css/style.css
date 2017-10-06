@@ -36,7 +36,10 @@ span.text-muted {
   width:25%;
   padding:23%;
   margin: 2%;
-  
+  transition: all 0.2s;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  outline: none;
 }
 
 .soundset{
@@ -56,43 +59,52 @@ span.text-muted {
   margin-bottom: 10px;
 }
 
-/* off colors state  material ui level 800 */
+/* off colors state  material ui level 300 FLASH 800 */
 
 .pad1{
-  background-color: rgba(46, 125, 50,1.0);
+  background-color: rgba(129, 199, 132,1.0);
 }
 
 .pad1Flash {
-  background-color: white;
+  background-color: rgba(46, 125, 50,1.0);
 }
 
 .pad2 {
-  background-color: rgba(249, 168, 37,1.0)
+  background-color: rgba(255, 241, 118,1.0);
 }
 
 .pad2Flash {
-  background-color: grey;
+  background-color: rgba(249, 168, 37,1.0);
 }
 
 .pad3{
-  background-color: rgba(198, 40, 40,1.0);
+  background-color: rgba(229, 115, 115,1.0);
 }
 
 .pad3Flash {
-  background-color: white;
+  background-color: rgba(198, 40, 40,1.0)
 }
 
 .pad4{
-  background-color: rgba(21, 101, 192,1.0);
+  background-color: rgba(100, 181, 246,1.0);
 }
 
 .pad4Flash {
-  background-color: orange;
+  background-color: rgba(21, 101, 192,1.0)
+}
+
+.winner {
+  background-color: white;
+  
 }
 
 .loser {
-  background-color: black;
+  background-color: rgba(55, 71, 79,1.0)
 }
+
+/* .winner {
+  background-color: white;
+} */
 
 /* pads flash state */
 
