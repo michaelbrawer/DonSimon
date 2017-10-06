@@ -11,7 +11,7 @@ var simonData;
 var countDown;
 //holds keydown data
 var keyPress;
-
+var userData;
 var userCount;
 
 
@@ -67,11 +67,11 @@ function init() {
 function getSimonData() {
   for (var i = 0; i < simonCount; i++) {
     var randInt = Math.random();
-    if (randInt > .75) {
+    if (randInt > 0.75) {
       simonData.push("pad1");
-    } else if (randInt > .5) {
+    } else if (randInt > 0.5) {
       simonData.push("pad2");
-    } else if (randInt > .25) {
+    } else if (randInt > 0.25) {
       simonData.push("pad3");
     } else {
       simonData.push("pad4");
@@ -105,7 +105,6 @@ function badClick() {
 }
 //advance to next stage.
 function nextStage(){
-  userData;
   simonData = [];
   userCount = 0;
   simonCount += 1;
