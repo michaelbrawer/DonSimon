@@ -12,6 +12,8 @@ var countDown;
 //holds keydown data
 var keyPress;
 
+var userCount;
+
 
 
 //jquery wrapper function
@@ -30,17 +32,21 @@ $(document).ready(function () {
     if (event.keyCode == 84){
       console.log('enter press T')
       userData = "pad1";
+      checkClick();
     } else if (event.keyCode == 71){
       console.log('enter press G');
       userData = "pad2";
+      checkClick();
     } else if (event.keyCode == 89){
       console.log('enter press Y'); 
       userData = "pad3";
+      checkClick();
     } else if (event.keyCode == 72){
       console.log('enter press H');
       userData = "pad4";
+      checkClick();
     }
-    checkClick();
+    
   })
   /*----- functions -----*/
   //Initiaize Gamestate:
@@ -59,6 +65,8 @@ function init() {
   userTurn = 0;
   userData = ''
   simonData = [];
+  userCount = 0;
+  getSimonData();
 }
 
 function getSimonData() {
@@ -74,23 +82,38 @@ function getSimonData() {
       simonData.push("pad4");
     }
   }
+  console.log(simonData);
 }
-
+// compares user input to Simon Data;
 function checkClick() {
-  if (userData === simonData[simonCount - 1]) {
-    goodClick();
+  if (userData === simonData[userCount]) {
+    console.log('good click');
+    userCount += 1;
+    console.log('usercount = '+ userCount)
+    winCheck();
   } else {
     badClick();
   }
 }
 
-function goodClick() {
-  console.log('good click');
-  simonCount += 1;
+//checks for win to advance stage;
+function winCheck(){
+  if (userCount === simonData.length){
+    nextStage();
+  }
 }
 
 function badClick() {
   console.log('bad click');
+}
+
+function nextStage(){
+  userData;
+  simonData = [];
+  userCount = 0;
+  simonCount += 1;
+  console.log('next stage');
+  getSimonData()
 }
 
 function dummyData(){
