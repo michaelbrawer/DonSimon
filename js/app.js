@@ -17,7 +17,9 @@ var userCount;
 var flashTime;
 var gameOn = false;
 var timerDuration;
-var timer;
+var easyTimer;
+var hardTimer;
+var clock;
 
 
 //jQuery wrapper function
@@ -73,14 +75,14 @@ $(document).ready(function () {
   //Sets initial Gamestate:
 function init() {
   simonCount = 1
-  timerDuration = (1400 * simonCount) +200;
+  easyTimer = (900 * simonCount) + 200
+  hardTimer = (300 * simonCount) + 100
+  timerDuration = easyTimer;
   userTurn = 0;
-  // userData = ''
   simonData = [];
   userCount = 0;
   flashTime = 400;
   gameOn = true;
-  
   $('.pad').removeClass('loser');
   getSimonData();
 }
@@ -88,7 +90,6 @@ function init() {
 //generate random data;
 function getSimonData() {
   $('#display').text('Simon Turn')
-  
   for (var i = 0; i < simonCount; i++) {
     var randInt = Math.random();
     if (randInt > 0.75) {
@@ -123,7 +124,6 @@ function renderSimonData(){
    }
 }
 
-
 // compares user input to Simon Data;
 function checkClick() {
   if (userData === simonData[userCount]) {
@@ -146,7 +146,7 @@ function winCheck(){
 // if bad click... 
 function badClick() {
   console.log('bad click');
-  window.clearTimeout(timer);
+  window.clearTimeout(clock);
   $('.pad').toggleClass('loser');
   $('#display').text('play again? - click spacebar')
   gameOn = false;
@@ -154,9 +154,9 @@ function badClick() {
   // starts countDown for user turn
 function startTimer(){
   $('#display').text('user turn');
-  window.clearTimeout(timer);
+  window.clearTimeout(clock);
   
-  timer = window.setTimeout(badClick, timerDuration + 2000)
+  clock = window.setTimeout(badClick, timerDuration + 2000)
   // setTimeout(badClick, (timerDuration + 2600));
 }
 
@@ -194,12 +194,7 @@ function nextStage(){
   userCount = 0;
   simonCount += 1;
   console.log('next stage');
-  
-  // $('.pad').toggleClass('winner');
-  // setTimeout(function(){
-  //   $('.pad4').toggleClass('winner');
-  // }, flashTime)
-  window.clearTimeout(timer);
+  window.clearTimeout(clock);
   setTimeout(getSimonData, flashTime*2);
 }
 
