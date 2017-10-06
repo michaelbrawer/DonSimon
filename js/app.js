@@ -89,7 +89,25 @@ function getSimonData() {
     }
   }
   console.log(simonData);
+  renderSimonData();
 }
+
+function renderSimonData(){
+  var offset = 0;
+   for (var i = 0; i < simonData.length; i++){
+      if (simonData[i] === 'pad1'){
+        setTimeout(padOneFlash, (flashTime + offset))
+      } else if (simonData[i] === 'pad2'){
+        setTimeout(padTwoFlash, (flashTime + offset))
+      } else if (simonData[i] === 'pad3'){
+        setTimeout(padThreeFlash, (flashTime + offset))
+      } else if (simonData[i] === 'pad4'){
+        setTimeout(padFourFlash, (flashTime + offset))
+      }
+      offset += 1000
+   }
+}
+
 
 // compares user input to Simon Data;
 function checkClick() {
@@ -149,7 +167,7 @@ function nextStage(){
   userCount = 0;
   simonCount += 1;
   console.log('next stage');
-  getSimonData()
+  setTimeout(getSimonData, flashTime);
 }
 //generate dummy data for testing...
 function dummyData(){
