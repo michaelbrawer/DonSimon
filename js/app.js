@@ -33,6 +33,7 @@ $(document).ready(function () {
     if (event.keyCode == 84){
       console.log('enter press T')
       userData = "pad1";
+      padOneFlash();
       checkClick();
     } else if (event.keyCode == 71){
       console.log('enter press G');
@@ -66,7 +67,7 @@ function init() {
   userData = ''
   simonData = [];
   userCount = 0;
-  flashTime = 800;
+  flashTime = 400;
   getSimonData();
 }
 
@@ -93,7 +94,6 @@ function checkClick() {
     console.log('good click');
     userCount += 1;
     console.log('usercount = '+ userCount)
-    flashPad();
     winCheck();
   } else {
     badClick();
@@ -112,12 +112,21 @@ function badClick() {
   init();
 }
 
-function flashPad(){
-  console.log('flashy')
+function padOneFlash(){
+  $('.pad1').toggleClass('pad1Flash');
   setTimeout(function(){
-  console.log('flashy flashy')
-  }, flashTime);
+    $('.pad1').toggleClass('pad1Flash');
+  }, flashTime)
 }
+
+function padTwoFlash(){
+  $('.pad2').toggleClass('pad2Flash');
+  setTimeout(function(){
+    $('.pad2').toggleClass('pad2Flash');
+  }, flashTime)
+}
+}
+
 //advance to next stage.
 function nextStage(){
   simonData = [];

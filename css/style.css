@@ -58,19 +58,25 @@ span.text-muted {
 
 /* off colors state  material ui level 800 */
 
-#pad1{
+.pad1{
   background-color: rgba(46, 125, 50,1.0);
 }
 
-#pad2 {
+.pad1Flash {
+  background-color: black;
+}
+
+.pad2 {
   background-color: rgba(249, 168, 37,1.0)
 }
 
-#pad3{
+
+
+.pad3{
   background-color: rgba(198, 40, 40,1.0);
 }
 
-#pad4{
+.pad4{
   background-color: rgba(21, 101, 192,1.0);
 }
 
