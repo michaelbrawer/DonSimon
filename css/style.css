@@ -95,11 +95,16 @@ span.text-muted {
 
 .winner {
   background-color: white;
-
+  transition: all 0.5s;
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
 }
 
 .loser {
   background-color: rgba(55, 71, 79,1.0);
+  transition: all 0.8s;
+  -webkit-transition: background 0.8s;
+  -moz-transition: background 0.8s;
 }
 
 /* .winner {

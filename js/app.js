@@ -15,6 +15,7 @@ var userData;
 var userCount;
 //duration for flash animation in ms
 var flashTime;
+// game in play
 var gameOn = false;
 var timerDuration;
 var easyTimer;
@@ -32,29 +33,24 @@ $(document).ready(function () {
   /*----- cached element references -----*/
 
   /*----- event listeners -----*/
-// var clickStars = $('body').on('keydown', function(evt){
-//   if (event.keyCode == 84){
-//     init();
-//     gameOn();
-//   }
-// })
+
   var keyListener = $('body').on('keydown', function(evt){
-    if (event.keyCode == 84){
+    if (event.keyCode == 84 && gameOn === true){
       console.log('enter press T')
       userData = "pad1";
       padOneFlash();
       checkClick();
-    } else if (event.keyCode == 71){
+    } else if (event.keyCode == 71 && gameOn === true){
       console.log('enter press G');
       userData = "pad2";
       padTwoFlash();
       checkClick();
-    } else if (event.keyCode == 89){
+    } else if (event.keyCode == 89 && gameOn === true){
       console.log('enter press Y'); 
       userData = "pad3";
       padThreeFlash();
       checkClick();
-    } else if (event.keyCode == 72){
+    } else if (event.keyCode == 72 && gameOn === true){
       console.log('enter press H');
       userData = "pad4";
       padFourFlash();
@@ -104,10 +100,10 @@ function getSimonData() {
   }
   console.log(simonData);
   renderSimonData();
-  
 }
 
 function renderSimonData(){
+  if (gameOn){
   setTimeout(startTimer, timerDuration)
   var offset = 200;
    for (var i = 0; i < simonData.length; i++){
@@ -122,6 +118,7 @@ function renderSimonData(){
       } 
       offset += (flashTime*1.5);
    }
+  }
 }
 
 // compares user input to Simon Data;
@@ -153,11 +150,9 @@ function badClick() {
 }
   // starts countDown for user turn
 function startTimer(){
-  $('#display').text('user turn');
+  $('#display').text('User Turn');
   window.clearTimeout(clock);
-  
   clock = window.setTimeout(badClick, timerDuration + 2000)
-  // setTimeout(badClick, (timerDuration + 2600));
 }
 
 function padOneFlash(){
@@ -190,6 +185,8 @@ function padFourFlash(){
 
 //advance to next stage.
 function nextStage(){
+  setTimeout(function(){$('.pad').toggleClass('winner')}, 300);
+  setTimeout(function(){$('.pad').toggleClass('winner');}, 600)
   simonData = [];
   userCount = 0;
   simonCount += 1;
