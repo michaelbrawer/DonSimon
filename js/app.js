@@ -13,6 +13,8 @@ var countDown;
 var userData;
 // holds count of user presses
 var userCount;
+//duration for flash animation in ms
+var flashTime;
 
 
 
@@ -47,6 +49,8 @@ $(document).ready(function () {
     } else if (event.keyCode == 32){
       //initialze app.
       init();
+    } else {
+      return;
     }
   })
 
@@ -62,6 +66,7 @@ function init() {
   userData = ''
   simonData = [];
   userCount = 0;
+  flashTime = 800;
   getSimonData();
 }
 
@@ -88,6 +93,7 @@ function checkClick() {
     console.log('good click');
     userCount += 1;
     console.log('usercount = '+ userCount)
+    flashPad();
     winCheck();
   } else {
     badClick();
@@ -104,6 +110,13 @@ function winCheck(){
 function badClick() {
   console.log('bad click');
   init();
+}
+
+function flashPad(){
+  console.log('flashy')
+  setTimeout(function(){
+  console.log('flashy flashy')
+  }, flashTime);
 }
 //advance to next stage.
 function nextStage(){
