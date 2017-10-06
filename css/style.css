@@ -63,7 +63,7 @@ span.text-muted {
 }
 
 .pad1Flash {
-  background-color: black;
+  background-color: white;
 }
 
 .pad2 {
@@ -88,6 +88,10 @@ span.text-muted {
 
 .pad4Flash {
   background-color: orange;
+}
+
+.loser {
+  background-color: black;
 }
 
 /* pads flash state */

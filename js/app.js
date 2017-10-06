@@ -71,6 +71,8 @@ function init() {
   simonData = [];
   userCount = 0;
   flashTime = 400;
+  
+  $('.pad').removeClass('loser');
   getSimonData();
 }
 
@@ -104,7 +106,7 @@ function renderSimonData(){
       } else if (simonData[i] === 'pad4'){
         setTimeout(padFourFlash, (flashTime + offset))
       }
-      offset += 1000
+      offset += (flashTime*1.5);
    }
 }
 
@@ -130,7 +132,9 @@ function winCheck(){
 // if bad click... 
 function badClick() {
   console.log('bad click');
-  init();
+      init();
+  $('.pad').toggleClass('loser');
+  
 }
 
 function padOneFlash(){
