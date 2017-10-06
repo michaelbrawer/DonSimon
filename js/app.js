@@ -18,7 +18,6 @@ var userCount;
 
 //jquery wrapper function
 
-
 $(document).ready(function () {
 
 
@@ -48,18 +47,13 @@ $(document).ready(function () {
     }
     
   })
-  /*----- functions -----*/
-  //Initiaize Gamestate:
-
-
-
 
   // ************************
 });
 // ************************
 
-//functions
-
+ /*----- functions -----*/
+  //Initiaize Gamestate:
 function init() {
   simonCount = 1
   userTurn = 0;
@@ -69,6 +63,7 @@ function init() {
   getSimonData();
 }
 
+//generate random data;
 function getSimonData() {
   for (var i = 0; i < simonCount; i++) {
     var randInt = Math.random();
@@ -84,6 +79,7 @@ function getSimonData() {
   }
   console.log(simonData);
 }
+
 // compares user input to Simon Data;
 function checkClick() {
   if (userData === simonData[userCount]) {
@@ -102,11 +98,12 @@ function winCheck(){
     nextStage();
   }
 }
-
+// if bad click... 
 function badClick() {
   console.log('bad click');
+  init();
 }
-
+//advance to next stage.
 function nextStage(){
   userData;
   simonData = [];
@@ -115,7 +112,7 @@ function nextStage(){
   console.log('next stage');
   getSimonData()
 }
-
+//generate dummy data for testing...
 function dummyData(){
   simonData = ["pad3", "pad1", "pad2", "pad4",]
 }
