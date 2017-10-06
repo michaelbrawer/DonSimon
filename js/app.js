@@ -16,7 +16,7 @@ var userCount;
 //duration for flash animation in ms
 var flashTime;
 var gameOn = false;
-
+var timerDuration;
 
 
 
@@ -73,8 +73,9 @@ $(document).ready(function () {
   //Sets initial Gamestate:
 function init() {
   simonCount = 1
+  timerDuration = (1200 * simonCount)+1000;
   userTurn = 0;
-  userData = ''
+  // userData = ''
   simonData = [];
   userCount = 0;
   flashTime = 400;
@@ -85,7 +86,8 @@ function init() {
 
 //generate random data;
 function getSimonData() {
-  $('#display').text('Simon Turn');
+  $('#display').text('Simon Turn')
+
   for (var i = 0; i < simonCount; i++) {
     var randInt = Math.random();
     if (randInt > 0.75) {
@@ -99,7 +101,6 @@ function getSimonData() {
     }
   }
   console.log(simonData);
-  
   renderSimonData();
 }
 
@@ -114,10 +115,9 @@ function renderSimonData(){
         setTimeout(padThreeFlash, (flashTime + offset))
       } else if (simonData[i] === 'pad4'){
         setTimeout(padFourFlash, (flashTime + offset))
-      }
+      } 
       offset += (flashTime*1.5);
    }
-   setTimeout($('#display').text('User Turn'), (flashTime + offset));
 }
 
 
@@ -142,10 +142,15 @@ function winCheck(){
 // if bad click... 
 function badClick() {
   console.log('bad click');
-      init();
+       
   $('.pad').toggleClass('loser');
   $('#display').text('play again? - click spacebar')
   gameOn = false;
+}
+  // starts countDown for user turn
+function startTimer(){
+  $('#display').text('user turn');
+  setTimeout(badClick, (timerDuration + 2600));
 }
 
 function padOneFlash(){
@@ -181,7 +186,9 @@ function nextStage(){
   simonData = [];
   userCount = 0;
   simonCount += 1;
+  
   console.log('next stage');
+  
   // $('.pad').toggleClass('winner');
   // setTimeout(function(){
   //   $('.pad4').toggleClass('winner');
