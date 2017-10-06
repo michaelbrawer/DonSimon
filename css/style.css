@@ -70,14 +70,24 @@ span.text-muted {
   background-color: rgba(249, 168, 37,1.0)
 }
 
-
+.pad2Flash {
+  background-color: grey;
+}
 
 .pad3{
   background-color: rgba(198, 40, 40,1.0);
 }
 
+.pad3Flash {
+  background-color: white;
+}
+
 .pad4{
   background-color: rgba(21, 101, 192,1.0);
+}
+
+.pad4Flash {
+  background-color: orange;
 }
 
 /* pads flash state */

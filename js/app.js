@@ -38,14 +38,17 @@ $(document).ready(function () {
     } else if (event.keyCode == 71){
       console.log('enter press G');
       userData = "pad2";
+      padTwoFlash();
       checkClick();
     } else if (event.keyCode == 89){
       console.log('enter press Y'); 
       userData = "pad3";
+      padThreeFlash();
       checkClick();
     } else if (event.keyCode == 72){
       console.log('enter press H');
       userData = "pad4";
+      padFourFlash();
       checkClick();
     } else if (event.keyCode == 32){
       //initialze app.
@@ -125,6 +128,19 @@ function padTwoFlash(){
     $('.pad2').toggleClass('pad2Flash');
   }, flashTime)
 }
+
+function padThreeFlash(){
+  $('.pad3').toggleClass('pad3Flash');
+  setTimeout(function(){
+    $('.pad3').toggleClass('pad3Flash');
+  }, flashTime)
+}
+
+function padFourFlash(){
+  $('.pad4').toggleClass('pad4Flash');
+  setTimeout(function(){
+    $('.pad4').toggleClass('pad4Flash');
+  }, flashTime)
 }
 
 //advance to next stage.
