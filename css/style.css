@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  padding: 0px 50px 10px 50px;
+  padding: 0px 50px auto 50px;
   /* font-family: 'Titillium Web', sans-serif; */
   font-family: 'Abril Fatface', cursive;
   background-image: url(https://i.imgur.com/JV5PToT.jpg);
@@ -13,6 +13,7 @@ body {
 
 div {
   text-align: center;
+
 }
 
 h1{
@@ -50,7 +51,7 @@ span.text-muted {
   transition: all 0.2s;
   -webkit-transition: background 0.2s;
   -moz-transition: background 0.2s;
-  outline: none;
+  /* outline: none; */
 }
 
 .soundset{
@@ -68,7 +69,7 @@ span.text-muted {
 }
 
 .footer {
-  margin-bottom: 10px;
+  /* margin-bottom: 20px; */
   margin-top: 10px;
 }
 
