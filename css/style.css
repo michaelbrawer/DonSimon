@@ -1,6 +1,14 @@
+html {
+  height: 100%
+}
+
 body {
   padding: 0px 50px 10px 50px;
-  font-family: 'Titillium Web', sans-serif;
+  /* font-family: 'Titillium Web', sans-serif; */
+  font-family: 'Abril Fatface', cursive;
+  background-image: url(https://i.imgur.com/JV5PToT.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 div {
@@ -28,6 +36,9 @@ span.text-muted {
 
 .container{
   max-width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
 .pad {
@@ -47,8 +58,9 @@ span.text-muted {
 }
 
 .btn-group{
-  margin-top: 5px;
+  /* margin-top: 5px; */
   color: white;
+  margin-bottom: 5px;
 }
 
 .mode{
@@ -57,6 +69,7 @@ span.text-muted {
 
 .footer {
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 /* off colors state  material ui level 300 FLASH 800 */
