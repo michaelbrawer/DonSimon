@@ -34,29 +34,29 @@ $(document).ready(function () {
 
   /*----- event listeners -----*/
 
-  var keyListener = $('body').on('keydown', function(evt){
-    if (event.keyCode == 84 && gameOn === true){
+  var keyListener = $('body').on('keydown', function (evt) {
+    if (event.keyCode == 84 && gameOn === true) {
       console.log('enter press T')
       userData = "pad1";
       padOneFlash();
       checkClick();
-    } else if (event.keyCode == 71 && gameOn === true){
+    } else if (event.keyCode == 71 && gameOn === true) {
       console.log('enter press G');
       userData = "pad2";
       padTwoFlash();
       checkClick();
-    } else if (event.keyCode == 89 && gameOn === true){
-      console.log('enter press Y'); 
+    } else if (event.keyCode == 89 && gameOn === true) {
+      console.log('enter press Y');
       userData = "pad3";
       padThreeFlash();
       checkClick();
-    } else if (event.keyCode == 72 && gameOn === true){
+    } else if (event.keyCode == 72 && gameOn === true) {
       console.log('enter press H');
       userData = "pad4";
       padFourFlash();
       checkClick();
-    } 
-      else if (event.keyCode == 32 && gameOn !== true){
+    }
+    else if (event.keyCode == 32 && gameOn !== true) {
       init();
     } else {
       return;
@@ -67,8 +67,8 @@ $(document).ready(function () {
 });
 // ************************
 
- /*----- functions -----*/
-  //Sets initial Gamestate:
+/*----- functions -----*/
+//Sets initial Gamestate:
 function init() {
   simonCount = 1
   easyTimer = (900 * simonCount) + 200
@@ -94,7 +94,7 @@ function getSimonData() {
       simonData.push("pad2");
     } else if (randInt > 0.25) {
       simonData.push("pad3");
-    } else { 
+    } else {
       simonData.push("pad4");
     }
   }
@@ -102,22 +102,22 @@ function getSimonData() {
   renderSimonData();
 }
 
-function renderSimonData(){
-  if (gameOn){
-  setTimeout(startTimer, timerDuration)
-  var offset = 200;
-   for (var i = 0; i < simonData.length; i++){
-      if (simonData[i] === 'pad1'){
+function renderSimonData() {
+  if (gameOn) {
+    setTimeout(startTimer, timerDuration)
+    var offset = 200;
+    for (var i = 0; i < simonData.length; i++) {
+      if (simonData[i] === 'pad1') {
         setTimeout(padOneFlash, (flashTime + offset))
-      } else if (simonData[i] === 'pad2'){
+      } else if (simonData[i] === 'pad2') {
         setTimeout(padTwoFlash, (flashTime + offset))
-      } else if (simonData[i] === 'pad3'){
+      } else if (simonData[i] === 'pad3') {
         setTimeout(padThreeFlash, (flashTime + offset))
-      } else if (simonData[i] === 'pad4'){
+      } else if (simonData[i] === 'pad4') {
         setTimeout(padFourFlash, (flashTime + offset))
-      } 
-      offset += (flashTime*1.5);
-   }
+      }
+      offset += (flashTime * 1.5);
+    }
   }
 }
 
@@ -126,7 +126,7 @@ function checkClick() {
   if (userData === simonData[userCount]) {
     console.log('good click');
     userCount += 1;
-    console.log('usercount = '+ userCount)
+    console.log('usercount = ' + userCount)
     winCheck();
   } else {
     badClick();
@@ -134,8 +134,8 @@ function checkClick() {
 }
 
 //checks for win to advance stage;
-function winCheck(){
-  if (userCount === simonData.length){
+function winCheck() {
+  if (userCount === simonData.length) {
     nextStage();
     // window.clearTimeout(startTimer);
   }
@@ -148,52 +148,52 @@ function badClick() {
   $('#display').text('play again? - click spacebar')
   gameOn = false;
 }
-  // starts countDown for user turn
-function startTimer(){
+// starts countDown for user turn
+function startTimer() {
   $('#display').text('User Turn');
   window.clearTimeout(clock);
   clock = window.setTimeout(badClick, timerDuration + 2000)
 }
 
-function padOneFlash(){
+function padOneFlash() {
   $('.pad1').toggleClass('pad1Flash');
-  setTimeout(function(){
+  setTimeout(function () {
     $('.pad1').toggleClass('pad1Flash');
   }, flashTime)
 }
 
-function padTwoFlash(){
+function padTwoFlash() {
   $('.pad2').toggleClass('pad2Flash');
-  setTimeout(function(){
+  setTimeout(function () {
     $('.pad2').toggleClass('pad2Flash');
   }, flashTime)
 }
 
-function padThreeFlash(){
+function padThreeFlash() {
   $('.pad3').toggleClass('pad3Flash');
-  setTimeout(function(){
+  setTimeout(function () {
     $('.pad3').toggleClass('pad3Flash');
   }, flashTime)
 }
 
-function padFourFlash(){
+function padFourFlash() {
   $('.pad4').toggleClass('pad4Flash');
-  setTimeout(function(){
+  setTimeout(function () {
     $('.pad4').toggleClass('pad4Flash');
   }, flashTime)
 }
 
 //advance to next stage.
-function nextStage(){
-  setTimeout(function(){$('.pad').toggleClass('winner')}, 300);
-  setTimeout(function(){$('.pad').toggleClass('winner');}, 600)
+function nextStage() {
+  setTimeout(function () { $('.pad').toggleClass('winner') }, 300);
+  setTimeout(function () { $('.pad').toggleClass('winner'); }, 600)
   simonData = [];
   userCount = 0;
   simonCount += 1;
   console.log('next stage');
   window.clearTimeout(clock);
   timerDuration = (900 * simonCount) + 200;
-  setTimeout(getSimonData, flashTime*2);
+  setTimeout(getSimonData, flashTime * 2);
 }
 
 
