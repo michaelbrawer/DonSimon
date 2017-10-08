@@ -45,7 +45,6 @@ span.text-muted {
   border-radius: 10px;
   margin-top: 10px;
   float: center;
-
 }
 
 .pad {
@@ -57,27 +56,38 @@ span.text-muted {
   transition: all 0.2s;
   -webkit-transition: background 0.2s;
   -moz-transition: background 0.2s;
-  /* outline: none; */
-  
+  /* outline: none; */ 
 }
 
-.soundset{
-  background-color: rgba(96, 125, 139,1.0);
+
+.btn {
+  border: none;
 }
 
 .btn-group{
+  border: none;
   /* margin-top: 5px; */
   color: white;
   margin-bottom: 5px;
+  outline: none;
 }
 
-.mode{
-  background-color: rgba(55, 71, 79,1.0);
-  color: rgba(55, 71, 79,1.0);
+.btn-group.soundset{
+  float: left;
+  margin-left: 15px;
 }
 
-#display {
-  color: rgba(96, 125, 139,1.0);
+.btn-group.difficulty{
+  float: right;
+  margin-right: 25px;
+}
+
+.btn.soundset{
+  background-color: rgba(96, 125, 139,1.0);
+}
+
+.btn.difficulty{
+  color: rgba(96, 125, 139,1.0);  
 }
 
 /* off colors state  material ui level 300 FLASH 800 */
@@ -128,3 +138,6 @@ span.text-muted {
   -moz-transition: background 1s;
 }
 
+#display {
+  color: rgba(96, 125, 139,1.0);
+}
