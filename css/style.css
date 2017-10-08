@@ -20,6 +20,8 @@ div {
 h1{
   padding: 0;
   color: white;
+  margin-top: 10px;
+  margin-bottom: 5px;
   font-family: 'Abril Fatface', cursive;
 
 }
@@ -74,10 +76,11 @@ span.text-muted {
   color: rgba(55, 71, 79,1.0);
 }
 
-.footer {
+div.footer {
   /* margin-bottom: 20px; */
   margin-top: 10px;
 }
+
 
 #display {
   color: rgba(96, 125, 139,1.0);

@@ -73,7 +73,7 @@ function init() {
   simonCount = 1
   easyTimer = (900 * simonCount) + 200
   hardTimer = (300 * simonCount) + 100
-  timerDuration = (900 * simonCount) + 200
+  timerDuration = (400 * simonCount) + 200
   userTurn = 0;
   simonData = [];
   userCount = 0;
@@ -152,7 +152,7 @@ function badClick() {
 function startTimer() {
   $('#display').text('User Turn');
   window.clearTimeout(clock);
-  clock = window.setTimeout(badClick, timerDuration + 2000)
+  clock = window.setTimeout(badClick, timerDuration + 1000)
 }
 
 function padOneFlash() {
@@ -192,7 +192,7 @@ function nextStage() {
   simonCount += 1;
   console.log('next stage');
   window.clearTimeout(clock);
-  timerDuration = (900 * simonCount) + 200;
+  timerDuration = (350 * simonCount) + 400;
   setTimeout(getSimonData, flashTime * 2);
 }
 
