@@ -185,8 +185,8 @@ function padFourFlash() {
 
 //advance to next stage.
 function nextStage() {
-  setTimeout(function () { $('.pad').toggleClass('winner') }, 300);
-  setTimeout(function () { $('.pad').toggleClass('winner'); }, 600)
+  setTimeout(function () { $('.pad').toggleClass('winner') }, 500);
+  setTimeout(function () { $('.pad').toggleClass('winner'); }, 600);
   simonData = [];
   userCount = 0;
   simonCount += 1;
