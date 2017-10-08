@@ -104,7 +104,7 @@ function getSimonData() {
 
 function renderSimonData() {
   if (gameOn) {
-    setTimeout(startTimer, timerDuration)
+    setTimeout(startTimer, timerDuration + (flashTime*simonCount));
     var offset = 200;
     for (var i = 0; i < simonData.length; i++) {
       if (simonData[i] === 'pad1') {
