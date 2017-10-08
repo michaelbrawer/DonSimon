@@ -123,8 +123,8 @@ span.text-muted {
 
 .loser {
   background-color: rgba(55, 71, 79, 0.6);
-  transition: all 0.8s;
-  -webkit-transition: background 0.8s;
-  -moz-transition: background 0.8s;
+  transition: all 1s;
+  -webkit-transition: background 1s;
+  -moz-transition: background 1s;
 }
 

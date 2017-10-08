@@ -194,7 +194,7 @@ function nextStage() {
   simonCount += 1;
   console.log('next stage');
   window.clearTimeout(clock);
-  timerDuration = (350 * simonCount) + 400;
+  timerDuration = (400 * simonCount) + 400;
   setTimeout(getSimonData, flashTime * 2);
 }
 
