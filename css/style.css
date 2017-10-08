@@ -4,8 +4,9 @@ html {
 
 body {
   padding: 0px 50px auto 50px;
+  /* sdfs */
   /* font-family: 'Titillium Web', sans-serif; */
-  font-family: 'Abril Fatface', cursive;
+  font-family: 'Raleway', sans-serif;
   background-image: url(https://i.imgur.com/JV5PToT.jpg);
   background-size: cover;
   background-position: center;
@@ -19,6 +20,7 @@ div {
 h1{
   padding: 0;
   color: white;
+  font-family: 'Abril Fatface', cursive;
 
 }
 
