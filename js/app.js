@@ -3,8 +3,11 @@
 
 
 /*----- app's state (variables) -----*/
+//integer for scoreboard to increase
+var scoreUp;
 //sets length of turn
 var simonCount;
+var scoreBoard = 0;
 simonCount = 1
 //stores Simon Array
 var simonData;
@@ -40,14 +43,14 @@ $(document).ready(function () {
 
   /*----- event listeners -----*/
 
-  var expertButton = $('#expertButton').on('click', function(){
+  var expertButton = $('#expertButton').on('click', function () {
     expertMode = true;
     gameOne = false;
     // setTimeout(init, 200);
     $('.pad').removeClass('loser');
   })
 
-  var normalButton = $('#normalButton').on('click', function(){
+  var normalButton = $('#normalButton').on('click', function () {
     expertMode = false;
     gameOne = false;
     // setTimeout(init, 500);
@@ -90,14 +93,16 @@ $(document).ready(function () {
 /*----- functions -----*/
 //Sets initial Gamestate:
 function init() {
-  if (expertMode){
-    countInteger = 2
-    timerDuration = (320 * simonCount) + 200
+  if (expertMode) {
+    countInteger = 2;
+    timerDuration = (320 * simonCount) + 200;
     flashTime = 340;
+    scoreUp = 35;
   } else {
-    countInteger = 1
-    timerDuration = (400 * simonCount) + 200
-    flashTime = 400
+    countInteger = 1;
+    timerDuration = (400 * simonCount) + 200;
+    flashTime = 400;
+    scoreUp = 10;
   }
 
   // userTurn = 0;
@@ -131,6 +136,7 @@ function getSimonData() {
 function renderSimonData() {
   if (gameOn) {
     setTimeout(startTimer, timerDuration + (flashTime * (simonCount)));
+    //consider lowering this offset...
     var offset = 200;
     for (var i = 0; i < simonData.length; i++) {
       if (simonData[i] === 'pad1') {
@@ -155,6 +161,7 @@ function checkClick() {
     console.log('usercount = ' + userCount)
     winCheck();
   } else {
+    scoreBoard = 0;
     badClick();
   }
 }
@@ -163,6 +170,7 @@ function checkClick() {
 function winCheck() {
   if (userCount === simonData.length) {
     nextStage();
+    $('.scoreBoard').text("Score: " + scoreBoard);
     // window.clearTimeout(startTimer);
   }
 }
@@ -172,6 +180,7 @@ function badClick() {
   console.log('bad click');
   window.clearTimeout(clock);
   $('.pad').toggleClass('loser');
+  $('.scoreBoard').text("Score: " + scoreBoard);
   $('#display').text('play again? - click spacebar')
   gameOn = false;
 }
@@ -216,12 +225,13 @@ function nextStage() {
   setTimeout(function () { $('.pad').toggleClass('winner'); }, 400);
   setTimeout(function () { $('.pad').toggleClass('winner') }, 600);
   setTimeout(function () { $('.pad').toggleClass('winner'); }, 800);
+  scoreBoard += scoreUp;
   simonData = [];
   userCount = 0;
   simonCount += countInteger;
   console.log('next stage');
   window.clearTimeout(clock);
-  timerDuration = (400 * simonCount) + 400;
+  timerDuration = (400 * simonCount) + 200;
   setTimeout(getSimonData, flashTime * 2);
 }
 
