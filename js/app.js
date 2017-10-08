@@ -7,8 +7,6 @@
 var simonCount;
 //stores Simon Array
 var simonData;
-//duration for countdown timer
-var countDown;
 //holds keydown data
 var userData;
 // holds count of user presses
@@ -17,9 +15,13 @@ var userCount;
 var flashTime;
 // game in play
 var gameOn = false;
+//duration for coundown timer
 var timerDuration;
+//holds timer data for easy mode
 var easyTimer;
+//holds timer data for hard mode
 var hardTimer;
+//window timer for end-of-turn timeout
 var clock;
 
 
@@ -104,7 +106,7 @@ function getSimonData() {
 
 function renderSimonData() {
   if (gameOn) {
-    setTimeout(startTimer, timerDuration + (flashTime*simonCount));
+    setTimeout(startTimer, timerDuration + (flashTime * simonCount));
     var offset = 200;
     for (var i = 0; i < simonData.length; i++) {
       if (simonData[i] === 'pad1') {
@@ -209,4 +211,4 @@ function nextStage() {
 
 //map styling to buchla 223
 
-//multiple sountsets
+      //multiple sountsets
