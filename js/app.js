@@ -185,8 +185,10 @@ function padFourFlash() {
 
 //advance to next stage.
 function nextStage() {
-  setTimeout(function () { $('.pad').toggleClass('winner') }, 500);
-  setTimeout(function () { $('.pad').toggleClass('winner'); }, 600);
+  setTimeout(function () { $('.pad').toggleClass('winner') }, 200);
+  setTimeout(function () { $('.pad').toggleClass('winner'); }, 400);
+  setTimeout(function () { $('.pad').toggleClass('winner') }, 600);
+  setTimeout(function () { $('.pad').toggleClass('winner'); }, 800);
   simonData = [];
   userCount = 0;
   simonCount += 1;
