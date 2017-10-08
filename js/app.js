@@ -5,6 +5,7 @@
 /*----- app's state (variables) -----*/
 //sets length of turn
 var simonCount;
+simonCount = 1
 //stores Simon Array
 var simonData;
 //holds keydown data
@@ -23,6 +24,9 @@ var easyTimer;
 var hardTimer;
 //window timer for end-of-turn timeout
 var clock;
+var countInteger;
+
+var expertMode = false;
 
 
 //jQuery wrapper function
@@ -72,10 +76,18 @@ $(document).ready(function () {
 /*----- functions -----*/
 //Sets initial Gamestate:
 function init() {
-  simonCount = 1
+  if (expertMode){
+    countInteger = 2
+    timerDuration = (300 * simonCount) + 100
+  } else {
+    countInteger = 1
+    timerDuration = (400 * simonCount) + 200
+  }
+  
+  
   easyTimer = (900 * simonCount) + 200
-  hardTimer = (300 * simonCount) + 100
-  timerDuration = (400 * simonCount) + 200
+  hardTimer = 
+  
   userTurn = 0;
   simonData = [];
   userCount = 0;
@@ -106,7 +118,7 @@ function getSimonData() {
 
 function renderSimonData() {
   if (gameOn) {
-    setTimeout(startTimer, timerDuration + (flashTime * simonCount));
+    setTimeout(startTimer, timerDuration + (flashTime * (simonCount)));
     var offset = 200;
     for (var i = 0; i < simonData.length; i++) {
       if (simonData[i] === 'pad1') {
@@ -144,6 +156,7 @@ function winCheck() {
 }
 // if bad click... 
 function badClick() {
+  simonCount = 1;
   console.log('bad click');
   window.clearTimeout(clock);
   $('.pad').toggleClass('loser');
@@ -193,7 +206,7 @@ function nextStage() {
   setTimeout(function () { $('.pad').toggleClass('winner'); }, 800);
   simonData = [];
   userCount = 0;
-  simonCount += 1;
+  simonCount += countInteger;
   console.log('next stage');
   window.clearTimeout(clock);
   timerDuration = (400 * simonCount) + 400;
