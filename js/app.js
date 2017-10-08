@@ -40,6 +40,20 @@ $(document).ready(function () {
 
   /*----- event listeners -----*/
 
+  var expertButton = $('#expertButton').on('click', function(){
+    expertMode = true;
+    gameOne = false;
+    // setTimeout(init, 200);
+    $('.pad').removeClass('loser');
+  })
+
+  var normalButton = $('#normalButton').on('click', function(){
+    expertMode = false;
+    gameOne = false;
+    // setTimeout(init, 500);
+    $('.pad').removeClass('loser');
+  })
+
   var keyListener = $('body').on('keydown', function (evt) {
     if (event.keyCode == 84 && gameOn === true) {
       console.log('enter press T')
@@ -78,20 +92,18 @@ $(document).ready(function () {
 function init() {
   if (expertMode){
     countInteger = 2
-    timerDuration = (300 * simonCount) + 100
+    timerDuration = (320 * simonCount) + 200
+    flashTime = 340;
   } else {
     countInteger = 1
     timerDuration = (400 * simonCount) + 200
+    flashTime = 400
   }
-  
-  
-  easyTimer = (900 * simonCount) + 200
-  hardTimer = 
-  
-  userTurn = 0;
+
+  // userTurn = 0;
   simonData = [];
   userCount = 0;
-  flashTime = 400;
+  // flashTime = 400;
   gameOn = true;
   $('.pad').removeClass('loser');
   getSimonData();
