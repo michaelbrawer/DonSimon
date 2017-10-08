@@ -4,7 +4,6 @@ html {
 
 body {
   padding: 0px 50px auto 50px;
-  /* sdfs */
   /* font-family: 'Titillium Web', sans-serif; */
   font-family: 'Raleway', sans-serif;
   background-image: url(https://i.imgur.com/d8D3sRZ.jpg);
@@ -45,6 +44,7 @@ span.text-muted {
   border: 4px solid rgba(96, 125, 139,1.0);
   border-radius: 10px;
   margin-top: 10px;
+  float: center;
 
 }
 
@@ -75,12 +75,6 @@ span.text-muted {
   background-color: rgba(55, 71, 79,1.0);
   color: rgba(55, 71, 79,1.0);
 }
-
-div.footer {
-  /* margin-bottom: 20px; */
-  margin-top: 10px;
-}
-
 
 #display {
   color: rgba(96, 125, 139,1.0);
@@ -134,8 +128,3 @@ div.footer {
   -moz-transition: background 0.8s;
 }
 
-/* .winner {
-  background-color: white;
-} */
-
-/* pads flash state */
