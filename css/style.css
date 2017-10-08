@@ -64,7 +64,7 @@ span.text-muted {
 }
 
 .scoreBoard {
-  display: inline;
+  display: inline-flex;
   /* float: center; */
   text-align: center;
   font-size: 20px;
