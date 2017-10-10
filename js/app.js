@@ -1,13 +1,15 @@
 /*----- constants -----*/
-
+//object containing gamesound addresses
+var gameSounds = {}
 
 
 /*----- app's state (variables) -----*/
+//sets scoreboard load state:
+var scoreBoard = 0;
 //integer for scoreboard to increase
 var scoreUp;
 //sets length of turn
 var simonCount;
-var scoreBoard = 0;
 simonCount = 1
 //stores Simon Array
 var simonData;
@@ -27,9 +29,12 @@ var easyTimer;
 var hardTimer;
 //window timer for end-of-turn timeout
 var clock;
+//how many steps does each stage increment by
 var countInteger;
-
+//is expert mode engaged
 var expertMode = false;
+//soundSet currently active
+var currentSound;
 
 
 //jQuery wrapper function
@@ -43,23 +48,45 @@ $(document).ready(function () {
 
   /*----- event listeners -----*/
 
+  //difficulty mode buttons
   var expertButton = $('#expertButton').on('click', function () {
     expertMode = true;
     gameOne = false;
-    // setTimeout(init, 200);
     $('.pad').removeClass('loser');
   })
 
   var normalButton = $('#normalButton').on('click', function () {
     expertMode = false;
     gameOne = false;
-    // setTimeout(init, 500);
     $('.pad').removeClass('loser');
   })
 
+  //sound set selector buttons
+  var chooseSound = $('.soundset').on('click', function(){
+    currentSound = this.id
+    console.log(currentSound);
+  });
+
+  //using mouse / pointer entry
+  var clickListener = $('.pad').click(function(){
+    console.log(this.id.toString());
+    userData = this.id;
+    if (userData === 'pad1'){
+      padOneFlash();
+    } else if (userData === 'pad2'){
+      padTwoFlash();
+    } else if(userData === 'pad3'){
+      padThreeFlash();
+    } else if (userData === 'pad4'){
+      padFourFlash();
+    }
+    checkClick();
+  });
+
+  //using key entry
   var keyListener = $('body').on('keydown', function (evt) {
     if (event.keyCode == 84 && gameOn === true) {
-      console.log('enter press T')
+      console.log("Enter Pad T")
       userData = "pad1";
       padOneFlash();
       checkClick();
@@ -87,11 +114,13 @@ $(document).ready(function () {
   })
 
   // ************************
+
 });
+
 // ************************
 
 /*----- functions -----*/
-//Sets initial Gamestate:
+//initializes gamestate/variables:
 function init() {
   if (expertMode) {
     countInteger = 2;
@@ -105,16 +134,14 @@ function init() {
     scoreUp = 10;
   }
 
-  // userTurn = 0;
   simonData = [];
   userCount = 0;
-  // flashTime = 400;
   gameOn = true;
   $('.pad').removeClass('loser');
   getSimonData();
 }
 
-//generate random data;
+//generate random data...
 function getSimonData() {
   $('#display').text('Simon Turn')
   for (var i = 0; i < simonCount; i++) {
@@ -133,6 +160,7 @@ function getSimonData() {
   renderSimonData();
 }
 
+//playback simon data as an animation...
 function renderSimonData() {
   if (gameOn) {
     setTimeout(startTimer, timerDuration + (flashTime * (simonCount)));
