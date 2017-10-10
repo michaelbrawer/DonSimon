@@ -111,32 +111,32 @@ $(document).ready(function () {
   }
   // ************************
 
-/*----- cached element references -----*/
+  /*----- cached element references -----*/
 
-/*----- event listeners -----*/
+  /*----- event listeners -----*/
 
-//soundset and mode buttons
+  //soundset and mode buttons
 
-var gameButtons = $('button').on('click', function(){
-  switch(this.id){
-    case 'expertButton':
-    if (!expertMode){
-      expertMode = true; 
-      scoreBoard = 0;
-      badClick();
-      renderScore();
-      $('#display').text('expert mode - click / space to start')
-      } 
-      break;
-    case 'normalButton':
-    if (expertMode) {
-      expertMode = false;
-      scoreBoard = 0;
-      badClick();
-      renderScore();
-      $('#display').text('normal mode - click / space to start')
-      } 
-      break;
+  var gameButtons = $('button').on('click', function () {
+    switch (this.id) {
+      case 'expertButton':
+        if (!expertMode) {
+          expertMode = true;
+          scoreBoard = 0;
+          badClick();
+          renderScore();
+          $('#display').text('expert mode - click / space to start')
+        }
+        break;
+      case 'normalButton':
+        if (expertMode) {
+          expertMode = false;
+          scoreBoard = 0;
+          badClick();
+          renderScore();
+          $('#display').text('normal mode - click / space to start')
+        }
+        break;
       case '1963':
         $('body').css('background-image', 'url(https://i.imgur.com/Q3lyGYn.jpg)');
         currentSound = 'set1963';
@@ -151,25 +151,25 @@ var gameButtons = $('button').on('click', function(){
         break;
       default:
         return;
-  }
-})
+    }
+  })
 
 
   // using mouse / pointer entry
-  var clickListener = $('.pad').click(function(){
-    if (gameOn){
-    userData = this.id;
-    if (userData === 'pad1'){
-      padOneFlash();
-    } else if (userData === 'pad2'){
-      padTwoFlash();
-    } else if(userData === 'pad3'){
-      padThreeFlash();
-    } else if (userData === 'pad4'){
-      padFourFlash();
-    }
-    checkClick();
-  } else {return}
+  var clickListener = $('.pad').click(function () {
+    if (gameOn) {
+      userData = this.id;
+      if (userData === 'pad1') {
+        padOneFlash();
+      } else if (userData === 'pad2') {
+        padTwoFlash();
+      } else if (userData === 'pad3') {
+        padThreeFlash();
+      } else if (userData === 'pad4') {
+        padFourFlash();
+      }
+      checkClick();
+    } else { return }
   });
 
   //click display to start
@@ -177,26 +177,27 @@ var gameButtons = $('button').on('click', function(){
 
   //using key entry
   var keyListener = $('body').on('keydown', function (evt) {
+
     if (event.keyCode == 84 && gameOn === true) {
       console.log("Enter Pad T")
       userData = "pad1";
       checkClick();
-      if(gameOn){padOneFlash()}
+      if (gameOn) { padOneFlash() }
     } else if (event.keyCode == 71 && gameOn === true) {
       console.log('enter press G');
       userData = "pad2";
       checkClick();
-      if(gameOn){padTwoFlash()}
+      if (gameOn) { padTwoFlash() }
     } else if (event.keyCode == 89 && gameOn === true) {
       console.log('enter press Y');
       userData = "pad3";
       checkClick();
-      if(gameOn){padThreeFlash()}
+      if (gameOn) { padThreeFlash() }
     } else if (event.keyCode == 72 && gameOn === true) {
       console.log('enter press H');
       userData = "pad4";
       checkClick();
-      if(gameOn){padFourFlash()}
+      if (gameOn) { padFourFlash() }
     } else if (event.keyCode == 32 && gameOn !== true) {
       init();
     } else {
@@ -208,173 +209,182 @@ var gameButtons = $('button').on('click', function(){
 
   /*----- GamePlay functions -----*/
 
-//initializes gamestate/variables:
-function init() {
-  if (expertMode) {
-    countInteger = 2;
-    timerDuration = (320 * simonCount) + 150;
-    flashTime = 340;
-    scoreUp = 35;
-  } else {
-    countInteger = 1;
-    timerDuration = (400 * simonCount) + 200;
-    flashTime = 340;
-    scoreUp = 10;
-  }
-  renderScore();
-  simonData = [];
-  userCount = 0;
-  gameOn = true;
-  $('.pad').removeClass('loser');
-  getSimonData();
-}
-
-//generate random data...
-function getSimonData() {
-  $('#display').text('Simon Turn')
-  for (var i = 0; i < simonCount; i++) {
-    var randInt = Math.random();
-    if (randInt > 0.75) {
-      simonData.push("pad1");
-    } else if (randInt > 0.5) {
-      simonData.push("pad2");
-    } else if (randInt > 0.25) {
-      simonData.push("pad3");
+  //initializes gamestate/variables:
+  function init() {
+    if (expertMode) {
+      countInteger = 2;
+      timerDuration = (320 * simonCount) + 150;
+      flashTime = 340;
+      scoreUp = 35;
     } else {
-      simonData.push("pad4");
+      countInteger = 1;
+      timerDuration = (400 * simonCount) + 200;
+      flashTime = 340;
+      scoreUp = 10;
     }
-  }
-  console.log(simonData);
-  if(gameOn){renderSimonData()}
-}
-
-//playback simon data as an animation...
-function renderSimonData() {
-  if (gameOn) {
-    setTimeout(startTimer, timerDuration + (flashTime * (simonCount)));
-    //consider lowering this offset...
-    var offset = 200;
-    for (var i = 0; i < simonData.length; i++) {
-      if (simonData[i] === 'pad1') {
-        setTimeout(padOneFlash, (flashTime + offset))
-      } else if (simonData[i] === 'pad2') {
-        setTimeout(padTwoFlash, (flashTime + offset))
-      } else if (simonData[i] === 'pad3') {
-        setTimeout(padThreeFlash, (flashTime + offset))
-      } else if (simonData[i] === 'pad4') {
-        setTimeout(padFourFlash, (flashTime + offset))
-      }
-      offset += (flashTime * 1.5);
-    }
-  }
-}
-
-// compares user input to Simon Data;
-function checkClick() {
-  if (userData === simonData[userCount]) {
-    userCount += 1;
-    winCheck();
-  } else {
-    gameOn = false;
-    scoreBoard = 0;
-    gameSounds[currentSound].loseSound.play()
-    badClick();
-  }
-}
-
-//checks for win to advance stage;
-function winCheck() {
-  if (userCount === simonData.length) {
-    nextStage();
     renderScore();
-    // window.clearTimeout(startTimer);
+    simonData = [];
+    userCount = 0;
+    gameOn = true;
+    $('.pad').removeClass('loser');
+    getSimonData();
   }
-}
-// if bad click... 
-function badClick() {
-  gameOn = false;
-  simonCount = 1;
-  window.clearTimeout(clock);
-  loseFlash();
-}
 
-// starts countDown for user turn
-function startTimer() {
-  $('#display').text('User Turn');
-  window.clearTimeout(clock);
-  clock = window.setTimeout(badClick, timerDuration + 1000)
-}
+  //generate random data...
+  function getSimonData() {
+    $('#display').text('Simon Turn')
+    for (var i = 0; i < simonCount; i++) {
+      var randInt = Math.random();
+      if (randInt > 0.75) {
+        simonData.push("pad1");
+      } else if (randInt > 0.5) {
+        simonData.push("pad2");
+      } else if (randInt > 0.25) {
+        simonData.push("pad3");
+      } else {
+        simonData.push("pad4");
+      }
+    }
+    console.log(simonData);
+    if (gameOn) { renderSimonData() }
+  }
 
-//advance to next stage.
-function nextStage() {
-  scoreBoard += scoreUp;
-  simonData = [];
-  userCount = 0;
-  simonCount += countInteger;
-  window.clearTimeout(clock);
-  timerDuration = (400 * simonCount) + 200;
-  winFlash();
-  setTimeout(getSimonData, flashTime * 2);
-}
+  //playback simon data as an animation...
+  function renderSimonData() {
+    if (gameOn) {
+      setTimeout(startTimer, timerDuration + (flashTime * (simonCount)));
+      //consider lowering this offset...
+      var offset = 200;
+      for (var i = 0; i < simonData.length; i++) {
+        if (simonData[i] === 'pad1') {
+          setTimeout(padOneFlash, (flashTime + offset))
+        } else if (simonData[i] === 'pad2') {
+          setTimeout(padTwoFlash, (flashTime + offset))
+        } else if (simonData[i] === 'pad3') {
+          setTimeout(padThreeFlash, (flashTime + offset))
+        } else if (simonData[i] === 'pad4') {
+          setTimeout(padFourFlash, (flashTime + offset))
+        }
+        offset += (flashTime * 1.5);
+      }
+    }
+  }
 
-//user input rendering functions//
-// **************************
+  // compares user input to Simon Data;
+  function checkClick() {
+    if (userData === simonData[userCount]) {
+      userCount += 1;
+      winCheck();
+    } else {
+      gameOn = false;
+      scoreBoard = 0;
 
-//stage advance animation
-function winFlash (){
-  setTimeout(function(){gameSounds[currentSound].winSound.play()}, 300);
-  setTimeout(function () { $('.pad').toggleClass('winner') }, 200);
-  setTimeout(function () { $('.pad').toggleClass('winner'); }, 400);
-  setTimeout(function () { $('.pad').toggleClass('winner') }, 600);
-  setTimeout(function () { $('.pad').toggleClass('winner'); }, 800);
-}
+      badClick();
+    }
+  }
 
-function loseFlash(){
-  
-  $('.pad').toggleClass('loser');
-  $('#display').text('play again? - click  / spacebar');
-}
+  //checks for win to advance stage;
+  function winCheck() {
+    if (userCount === simonData.length) {
+      nextStage();
+      renderScore();
+      // window.clearTimeout(startTimer);
+    }
+  }
+  // if bad click... 
+  function badClick() {
+    gameOn = false;
+    simonCount = 1;
+    window.clearTimeout(clock);
+    gameSounds[currentSound].loseSound.play()
+    loseFlash();
+  }
 
-function renderScore(){
-  $('.scoreBoard').text("Score: " + scoreBoard);
-}
+  // starts countDown for user turn
+  function startTimer() {
+    $('#display').text('User Turn');
+    window.clearTimeout(clock);
+    clock = window.setTimeout(badClick, timerDuration + 1000)
+  }
 
-// individual pad flash render functions... 
-function padOneFlash() {
-  gameSounds[currentSound].soundOne.play();
-  // gameSounds[currentSound].soundOne.play();
-  //target audio object -> gameSounds[currentSound].pad1
-  $('.pad1').toggleClass('pad1Flash');
-  setTimeout(function () {
-    $('.pad1').toggleClass('pad1Flash');
-  }, flashTime)
-}
+  //advance to next stage.
+  function nextStage() {
+    scoreBoard += scoreUp;
+    simonData = [];
+    userCount = 0;
+    simonCount += countInteger;
+    window.clearTimeout(clock);
+    timerDuration = (400 * simonCount) + 200;
+    winFlash();
+    setTimeout(getSimonData, flashTime * 2);
+  }
 
-function padTwoFlash() {
-  gameSounds[currentSound].soundTwo.play();
-  $('.pad2').toggleClass('pad2Flash');
-  setTimeout(function () {
-    $('.pad2').toggleClass('pad2Flash');
-  }, flashTime)
-}
+  //user input rendering functions//
+  // **************************
 
-function padThreeFlash() {
-  gameSounds[currentSound].soundThree.play();
-  $('.pad3').toggleClass('pad3Flash');
-  setTimeout(function () {
-    $('.pad3').toggleClass('pad3Flash');
-  }, flashTime)
-}
+  //stage advance animation
+  function winFlash() {
+    setTimeout(function () { gameSounds[currentSound].winSound.play() }, 300);
+    setTimeout(function () { $('.pad').toggleClass('winner') }, 200);
+    setTimeout(function () { $('.pad').toggleClass('winner'); }, 400);
+    setTimeout(function () { $('.pad').toggleClass('winner') }, 600);
+    setTimeout(function () { $('.pad').toggleClass('winner'); }, 800);
+  }
 
-function padFourFlash() {
-  gameSounds[currentSound].soundFour.play();
-  $('.pad4').toggleClass('pad4Flash');
-  setTimeout(function () {
-    $('.pad4').toggleClass('pad4Flash');
-  }, flashTime)
-}
+  function loseFlash() {
 
-// ***************************
+    $('.pad').toggleClass('loser');
+    $('#display').text('play again? - click  / spacebar');
+  }
+
+  function renderScore() {
+    $('.scoreBoard').text("Score: " + scoreBoard);
+  }
+
+  // individual pad flash render functions... 
+  function padOneFlash() {
+    if (gameOn) {
+      gameSounds[currentSound].soundOne.play();
+      // gameSounds[currentSound].soundOne.play();
+      //target audio object -> gameSounds[currentSound].pad1
+      $('.pad1').toggleClass('pad1Flash');
+      setTimeout(function () {
+        $('.pad1').toggleClass('pad1Flash');
+      }, flashTime)
+    }
+  }
+
+  function padTwoFlash() {
+    if (gameOn) {
+      gameSounds[currentSound].soundTwo.play();
+      $('.pad2').toggleClass('pad2Flash');
+      setTimeout(function () {
+        $('.pad2').toggleClass('pad2Flash');
+      }, flashTime)
+    }
+  }
+
+  function padThreeFlash() {
+    if (gameOn) {
+      gameSounds[currentSound].soundThree.play();
+      $('.pad3').toggleClass('pad3Flash');
+      setTimeout(function () {
+        $('.pad3').toggleClass('pad3Flash');
+      }, flashTime)
+    }
+  }
+
+  function padFourFlash() {
+    if (gameOn) {
+      gameSounds[currentSound].soundFour.play();
+      $('.pad4').toggleClass('pad4Flash');
+      setTimeout(function () {
+        $('.pad4').toggleClass('pad4Flash');
+      }, flashTime)
+    }
+  }
+
+  // ***************************
 
 });
 
