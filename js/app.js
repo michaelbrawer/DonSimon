@@ -190,6 +190,23 @@ function startTimer() {
   window.clearTimeout(clock);
   clock = window.setTimeout(badClick, timerDuration + 1000)
 }
+
+//advance to next stage.
+function nextStage() {
+  setTimeout(function () { $('.pad').toggleClass('winner') }, 200);
+  setTimeout(function () { $('.pad').toggleClass('winner'); }, 400);
+  setTimeout(function () { $('.pad').toggleClass('winner') }, 600);
+  setTimeout(function () { $('.pad').toggleClass('winner'); }, 800);
+  scoreBoard += scoreUp;
+  simonData = [];
+  userCount = 0;
+  simonCount += countInteger;
+  console.log('next stage');
+  window.clearTimeout(clock);
+  timerDuration = (400 * simonCount) + 200;
+  setTimeout(getSimonData, flashTime * 2);
+}
+
 //pad flash render functions... 
 function padOneFlash() {
   $('.pad1').toggleClass('pad1Flash');
@@ -217,22 +234,6 @@ function padFourFlash() {
   setTimeout(function () {
     $('.pad4').toggleClass('pad4Flash');
   }, flashTime)
-}
-
-//advance to next stage.
-function nextStage() {
-  setTimeout(function () { $('.pad').toggleClass('winner') }, 200);
-  setTimeout(function () { $('.pad').toggleClass('winner'); }, 400);
-  setTimeout(function () { $('.pad').toggleClass('winner') }, 600);
-  setTimeout(function () { $('.pad').toggleClass('winner'); }, 800);
-  scoreBoard += scoreUp;
-  simonData = [];
-  userCount = 0;
-  simonCount += countInteger;
-  console.log('next stage');
-  window.clearTimeout(clock);
-  timerDuration = (400 * simonCount) + 200;
-  setTimeout(getSimonData, flashTime * 2);
 }
 
 //icebox:
