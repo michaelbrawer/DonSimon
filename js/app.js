@@ -1,6 +1,6 @@
 /*----- constants -----*/
-//object containing gamesound addresses
-var gameSounds = {}
+//array containing gamesound addresses
+var gameSounds = [{}, {}, {}]
 
 
 /*----- app's state (variables) -----*/
@@ -33,8 +33,10 @@ var clock;
 var countInteger;
 //is expert mode engaged
 var expertMode = false;
-//soundSet currently active
+//soundSet currently active, targets gameSound array...
 var currentSound;
+var era;
+
 
 
 //jQuery wrapper function
@@ -50,6 +52,7 @@ $(document).ready(function () {
 
   //difficulty mode buttons
   var expertButton = $('#expertButton').on('click', function () {
+    era = this.id;
     if (expertMode){return} else {
     init();
     expertMode = true;
@@ -69,8 +72,16 @@ $(document).ready(function () {
 
   //sound set selector buttons
   var chooseSound = $('.soundset').on('click', function(){
-    currentSound = this.id
-    console.log(currentSound);
+    if (this.id === "1963"){
+      era = "1963";
+      $('body').css('background-image', 'url(https://i.imgur.com/Q3lyGYn.jpg)');
+    } else if (this.id === "1970") {
+      era = '1970'
+      $('body').css('background-image', 'url(https://i.imgur.com/JV5PToT.jpg)');
+    } else if (this.id === '2004'){
+      era = '2004';
+      $('body').css('background-image', 'url(https://i.imgur.com/fwktNlT.jpg)');
+    }
   });
 
   //using mouse / pointer entry
@@ -249,6 +260,7 @@ function winFlash (){
 
 //pad flash render functions... 
 function padOneFlash() {
+  //target audio object -> gameSounds[currentSound].pad1
   $('.pad1').toggleClass('pad1Flash');
   setTimeout(function () {
     $('.pad1').toggleClass('pad1Flash');
