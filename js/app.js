@@ -50,15 +50,21 @@ $(document).ready(function () {
 
   //difficulty mode buttons
   var expertButton = $('#expertButton').on('click', function () {
+    if (expertMode){return} else {
+    init();
     expertMode = true;
     gameOne = false;
     $('.pad').removeClass('loser');
+    }
   })
 
   var normalButton = $('#normalButton').on('click', function () {
+    if (!expertMode){return}{
+    init();
     expertMode = false;
     gameOne = false;
     $('.pad').removeClass('loser');
+    }
   })
 
   //sound set selector buttons
@@ -69,6 +75,7 @@ $(document).ready(function () {
 
   //using mouse / pointer entry
   var clickListener = $('.pad').click(function(){
+    if (gameOn){
     userData = this.id;
     if (userData === 'pad1'){
       padOneFlash();
@@ -80,7 +87,11 @@ $(document).ready(function () {
       padFourFlash();
     }
     checkClick();
+  } else {return}
   });
+
+  //click display to start
+  $('#display').click(init);
 
   //using key entry
   var keyListener = $('body').on('keydown', function (evt) {
@@ -205,9 +216,10 @@ function badClick() {
   window.clearTimeout(clock);
   $('.pad').toggleClass('loser');
   $('.scoreBoard').text("Score: " + scoreBoard);
-  $('#display').text('play again? - click spacebar')
+  $('#display').text('play again? - click  / spacebar')
   gameOn = false;
 }
+
 // starts countDown for user turn
 function startTimer() {
   $('#display').text('User Turn');

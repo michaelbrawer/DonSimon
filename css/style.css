@@ -26,13 +26,10 @@ h1{
 
 div.page-header{
   background-color: rgba(98, 113, 120, .7);
-  
   font-size: 36px;
   border-radius: 10px;
-  /* padding-bottom: 0; */
   margin: 0 20px 0 20px;
   padding: 0;
-  
 }
 
 span.text-muted {
@@ -51,6 +48,10 @@ span.text-muted {
   box-shadow: 0px 2px 15px 3px rgba(74,73,74,1);
 }
 
+.gameBoard {
+  cursor: pointer;
+}
+
 .pad {
   border-radius: 20px;
   box-sizing: inherit;
@@ -60,7 +61,6 @@ span.text-muted {
   transition: all 0.2s;
   -webkit-transition: background 0.2s;
   -moz-transition: background 0.2s;
-  /* outline: none; */ 
 }
 
 .scoreBoard {
@@ -184,4 +184,5 @@ span.text-muted {
 
 #display {
   color: rgba(96, 125, 139,1.0);
+  cursor: pointer;
 }
