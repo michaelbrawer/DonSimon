@@ -48,6 +48,14 @@ gameOn = false;
 $(document).ready(function () {
 
   var gameSounds = {
+    initSound: {
+      loadSound: new Howl({
+        src: ['/assets/sounds/wipe.mp3']
+      }),
+      loadSound2: new Howl({
+        src: ['/assets/sounds/60L3.mp3']
+      })
+    },
     set1963: {
       soundOne: new Howl({
         src: ['/assets/sounds/60H1.mp3']
@@ -222,6 +230,7 @@ $(document).ready(function () {
       flashTime = 340;
       scoreUp = 10;
     }
+    gameSounds.initSound.loadSound.play()
     renderScore();
     simonData = [];
     userCount = 0;
