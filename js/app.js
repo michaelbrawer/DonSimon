@@ -146,7 +146,7 @@ $(document).ready(function () {
         currentSound = 'set1970';
         break;
       case '2004':
-        $('body').css('background-image', 'url(https://i.imgur.com/fwktNlT.jpg)');
+        $('body').css('background-image', 'url(https://i.imgur.com/O6Pik1v.jpg)');
         currentSound = "set2004"
         break;
       default:
@@ -232,7 +232,7 @@ $(document).ready(function () {
 
   //generate random data...
   function getSimonData() {
-    $('#display').text('Simon Turn')
+    
     for (var i = 0; i < simonCount; i++) {
       var randInt = Math.random();
       if (randInt > 0.75) {
@@ -252,6 +252,7 @@ $(document).ready(function () {
   //playback simon data as an animation...
   function renderSimonData() {
     if (gameOn) {
+      $('#display').text('Simon Turn')
       setTimeout(startTimer, timerDuration + (flashTime * (simonCount)));
       //consider lowering this offset...
       var offset = 200;
@@ -293,9 +294,9 @@ $(document).ready(function () {
   }
   // if bad click... 
   function badClick() {
+    window.clearTimeout(clock);
     gameOn = false;
     simonCount = 1;
-    window.clearTimeout(clock);
     gameSounds[currentSound].loseSound.play()
     loseFlash();
   }
@@ -332,7 +333,6 @@ $(document).ready(function () {
   }
 
   function loseFlash() {
-
     $('.pad').toggleClass('loser');
     $('#display').text('play again? - click  / spacebar');
   }
