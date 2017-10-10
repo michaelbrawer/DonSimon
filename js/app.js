@@ -19,7 +19,7 @@ var userCount;
 //duration for flash animation in ms
 var flashTime;
 // game in play
-var gameOn = false;
+var gameOn;
 //duration for coundown timer
 var timerDuration;
 //holds timer data for easy mode
@@ -34,7 +34,10 @@ var countInteger;
 var expertMode = false;
 //soundSet currently active, targets gameSound array...
 var currentSound;
+//loads default set
 currentSound = 'set1970';
+//awaiting start of game. 
+gameOn = false;
 
 //array containing gamesound addresses
 
@@ -117,24 +120,22 @@ $(document).ready(function () {
 var gameButtons = $('button').on('click', function(){
   switch(this.id){
     case 'expertButton':
-    if (expertMode){return} else {
-      expertMode = true;
-      gameOne = false;
+    if (!expertMode){
+      expertMode = true; 
       scoreBoard = 0;
       badClick();
       renderScore();
       $('#display').text('expert mode - click / space to start')
-      }
+      } 
       break;
     case 'normalButton':
-    if (!expertMode){return} else {
+    if (expertMode) {
       expertMode = false;
-      gameOne = false;
       scoreBoard = 0;
       badClick();
       renderScore();
       $('#display').text('normal mode - click / space to start')
-      }
+      } 
       break;
       case '1963':
         $('body').css('background-image', 'url(https://i.imgur.com/Q3lyGYn.jpg)');
@@ -179,23 +180,23 @@ var gameButtons = $('button').on('click', function(){
     if (event.keyCode == 84 && gameOn === true) {
       console.log("Enter Pad T")
       userData = "pad1";
-      padOneFlash();
       checkClick();
+      if(gameOn){padOneFlash()}
     } else if (event.keyCode == 71 && gameOn === true) {
       console.log('enter press G');
       userData = "pad2";
-      padTwoFlash();
       checkClick();
+      if(gameOn){padTwoFlash()}
     } else if (event.keyCode == 89 && gameOn === true) {
       console.log('enter press Y');
       userData = "pad3";
-      padThreeFlash();
       checkClick();
+      if(gameOn){padThreeFlash()}
     } else if (event.keyCode == 72 && gameOn === true) {
       console.log('enter press H');
       userData = "pad4";
-      padFourFlash();
       checkClick();
+      if(gameOn){padFourFlash()}
     } else if (event.keyCode == 32 && gameOn !== true) {
       init();
     } else {
@@ -211,13 +212,13 @@ var gameButtons = $('button').on('click', function(){
 function init() {
   if (expertMode) {
     countInteger = 2;
-    timerDuration = (320 * simonCount) + 200;
+    timerDuration = (320 * simonCount) + 150;
     flashTime = 340;
     scoreUp = 35;
   } else {
     countInteger = 1;
     timerDuration = (400 * simonCount) + 200;
-    flashTime = 400;
+    flashTime = 340;
     scoreUp = 10;
   }
   renderScore();
@@ -244,7 +245,7 @@ function getSimonData() {
     }
   }
   console.log(simonData);
-  renderSimonData();
+  if(gameOn){renderSimonData()}
 }
 
 //playback simon data as an animation...
@@ -274,10 +275,10 @@ function checkClick() {
     userCount += 1;
     winCheck();
   } else {
+    gameOn = false;
     scoreBoard = 0;
-    setTimeout(function(){gameSounds[currentSound].loseSound.play()
+    gameSounds[currentSound].loseSound.play()
     badClick();
-    }, 400);
   }
 }
 
@@ -291,10 +292,10 @@ function winCheck() {
 }
 // if bad click... 
 function badClick() {
+  gameOn = false;
   simonCount = 1;
   window.clearTimeout(clock);
   loseFlash();
-  gameOn = false;
 }
 
 // starts countDown for user turn
