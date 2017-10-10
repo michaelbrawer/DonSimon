@@ -35,9 +35,6 @@ var countInteger;
 var expertMode = false;
 //soundSet currently active, targets gameSound array...
 var currentSound;
-var era;
-
-
 
 //jQuery wrapper function
 
@@ -73,13 +70,10 @@ $(document).ready(function () {
   //sound set selector buttons
   var chooseSound = $('.soundset').on('click', function(){
     if (this.id === "1963"){
-      era = "1963";
       $('body').css('background-image', 'url(https://i.imgur.com/Q3lyGYn.jpg)');
     } else if (this.id === "1970") {
-      era = '1970'
       $('body').css('background-image', 'url(https://i.imgur.com/JV5PToT.jpg)');
     } else if (this.id === '2004'){
-      era = '2004';
       $('body').css('background-image', 'url(https://i.imgur.com/fwktNlT.jpg)');
     }
   });
@@ -291,11 +285,11 @@ function padFourFlash() {
 //icebox:
 //PaperJs render animations for button flash
 //vision impaired mode
-//rotating backgroudns based on soundset
+//rotating backgroudns based on soundset (CHECK!!!)
 //special layout for mobile w. clicks / minimal ui
 ////Normal/Expert toggles setTimeout interval (CHECK!!!)
 //flash state === keydown duration
-//era toggle selects soundset
+//era toggle selects soundset (CHECK!!!)
 //custom soundsets
 
 //map styling to buchla 223
