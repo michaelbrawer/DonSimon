@@ -1,6 +1,4 @@
 /*----- constants -----*/
-//array containing gamesound addresses
-var gameSounds = [{}, {}, {}]
 
 
 /*----- app's state (variables) -----*/
@@ -10,6 +8,7 @@ var scoreBoard = 0;
 var scoreUp;
 //sets length of turn
 var simonCount;
+
 simonCount = 1
 //stores Simon Array
 var simonData;
@@ -35,6 +34,9 @@ var countInteger;
 var expertMode = false;
 //soundSet currently active, targets gameSound array...
 var currentSound;
+currentSound = 'set1970';
+
+//array containing gamesound addresses
 
 
 
@@ -42,62 +44,90 @@ var currentSound;
 
 $(document).ready(function () {
 
-
+  var gameSounds = {
+    set1963: {
+      soundOne: 'sound1',
+      soundTwo: 'sound2',
+      soundThree: 'sound3',
+      soundFour: 'sound4',
+      winSound: 'win sound',
+      loseSound: 'lose sound'
+    },
+    set1970: {
+      soundOne: new Howl({
+        src: ['/assets/sounds/70sHi1.mp3']
+      }),
+      soundTwo: new Howl({
+        src: ['/assets/sounds/70sHi2.mp3']
+      }),
+      soundThree: new Howl({
+        src: ['/assets/sounds/70sHi3.mp3']
+      }),
+      soundFour: new Howl({
+        src: ['/assets/sounds/70sHi4.mp3']
+      }),
+      winSound: new Howl({
+        src: ['/assets/sounds/70swin1.mp3']
+      }),
+      loseSound: new Howl({
+        src: ['/assets/sounds/70slose.mp3']
+      }),
+    },
+    set2004: {
+      soundOne: 'sound1',
+      soundTwo: 'sound2',
+      soundThree: 'sound3',
+      soundFour: 'sound4',
+      winSound: 'win sound',
+      loseSound: 'lose sound'
+    }
+  }
   // ************************
 
-  /*----- cached element references -----*/
+/*----- cached element references -----*/
 
-  /*----- event listeners -----*/
+/*----- event listeners -----*/
 
-  //mode buttons
-var difficultyButtons = $('.difficulty').on('click', function(){
-  if (this.id === "expertButton") {
+//soundset and mode buttons
+
+var gameButtons = $('button').on('click', function(){
+  switch(this.id){
+    case 'expertButton':
     if (expertMode){return} else {
       expertMode = true;
       gameOne = false;
-      init();
+      scoreBoard = 0;
+      badClick();
+      renderScore();
+      $('#display').text('expert mode - click / space to start')
       }
-  } else if (this.id === 'normal button') {
+      break;
+    case 'normalButton':
     if (!expertMode){return} else {
       expertMode = false;
       gameOne = false;
-      init();
+      scoreBoard = 0;
+      badClick();
+      renderScore();
+      $('#display').text('normal mode - click / space to start')
       }
+      break;
+      case '1963':
+        $('body').css('background-image', 'url(https://i.imgur.com/Q3lyGYn.jpg)');
+        break;
+      case '1970':
+        $('body').css('background-image', 'url(https://i.imgur.com/JV5PToT.jpg)');
+        break;
+      case '2004':
+        $('body').css('background-image', 'url(https://i.imgur.com/fwktNlT.jpg)');
+        break;
+      default:
+        return;
   }
-  $('.pad').removeClass('loser');
 })
 
-  //difficulty mode buttons (OLD)
-  // var expertButton = $('#expertButton').on('click', function () {
-  //   if (expertMode){return} else {
-  //   init();
-  //   expertMode = true;
-  //   gameOne = false;
-  //   $('.pad').removeClass('loser');
-  //   }
-  // })
 
-  // var normalButton = $('#normalButton').on('click', function () {
-  //   if (!expertMode){return} else {
-  //   init();
-  //   expertMode = false;
-  //   gameOne = false;
-  //   $('.pad').removeClass('loser');
-  //   }
-  // })
-
-  //sound set selector buttons
-  var chooseSound = $('.soundset').on('click', function(){
-    if (this.id === "1963"){
-      $('body').css('background-image', 'url(https://i.imgur.com/Q3lyGYn.jpg)');
-    } else if (this.id === "1970") {
-      $('body').css('background-image', 'url(https://i.imgur.com/JV5PToT.jpg)');
-    } else if (this.id === '2004'){
-      $('body').css('background-image', 'url(https://i.imgur.com/fwktNlT.jpg)');
-    } else {return}
-  });
-
-  //using mouse / pointer entry
+  // using mouse / pointer entry
   var clickListener = $('.pad').click(function(){
     if (gameOn){
     userData = this.id;
@@ -139,8 +169,7 @@ var difficultyButtons = $('.difficulty').on('click', function(){
       userData = "pad4";
       padFourFlash();
       checkClick();
-    }
-    else if (event.keyCode == 32 && gameOn !== true) {
+    } else if (event.keyCode == 32 && gameOn !== true) {
       init();
     } else {
       return;
@@ -149,7 +178,8 @@ var difficultyButtons = $('.difficulty').on('click', function(){
 
   // ************************
 
-  /*----- functions -----*/
+  /*----- GamePlay functions -----*/
+
 //initializes gamestate/variables:
 function init() {
   if (expertMode) {
@@ -163,7 +193,7 @@ function init() {
     flashTime = 400;
     scoreUp = 10;
   }
-
+  renderScore();
   simonData = [];
   userCount = 0;
   gameOn = true;
@@ -218,7 +248,9 @@ function checkClick() {
     winCheck();
   } else {
     scoreBoard = 0;
+    setTimeout(function(){gameSounds[currentSound].loseSound.play()}, 400);
     badClick();
+            
   }
 }
 
@@ -226,7 +258,7 @@ function checkClick() {
 function winCheck() {
   if (userCount === simonData.length) {
     nextStage();
-    $('.scoreBoard').text("Score: " + scoreBoard);
+    renderScore();
     // window.clearTimeout(startTimer);
   }
 }
@@ -234,9 +266,7 @@ function winCheck() {
 function badClick() {
   simonCount = 1;
   window.clearTimeout(clock);
-  $('.pad').toggleClass('loser');
-  $('.scoreBoard').text("Score: " + scoreBoard);
-  $('#display').text('play again? - click  / spacebar')
+  loseFlash();
   gameOn = false;
 }
 
@@ -259,18 +289,32 @@ function nextStage() {
   setTimeout(getSimonData, flashTime * 2);
 }
 
-//rendering functions//
+//user input rendering functions//
+// **************************
 
 //stage advance animation
 function winFlash (){
+  setTimeout(function(){gameSounds[currentSound].winSound.play()}, 300);
   setTimeout(function () { $('.pad').toggleClass('winner') }, 200);
   setTimeout(function () { $('.pad').toggleClass('winner'); }, 400);
   setTimeout(function () { $('.pad').toggleClass('winner') }, 600);
   setTimeout(function () { $('.pad').toggleClass('winner'); }, 800);
 }
 
-//pad flash render functions... 
+function loseFlash(){
+  
+  $('.pad').toggleClass('loser');
+  $('#display').text('play again? - click  / spacebar');
+}
+
+function renderScore(){
+  $('.scoreBoard').text("Score: " + scoreBoard);
+}
+
+// individual pad flash render functions... 
 function padOneFlash() {
+  gameSounds[currentSound].soundOne.play();
+  // gameSounds[currentSound].soundOne.play();
   //target audio object -> gameSounds[currentSound].pad1
   $('.pad1').toggleClass('pad1Flash');
   setTimeout(function () {
@@ -279,6 +323,7 @@ function padOneFlash() {
 }
 
 function padTwoFlash() {
+  gameSounds[currentSound].soundTwo.play();
   $('.pad2').toggleClass('pad2Flash');
   setTimeout(function () {
     $('.pad2').toggleClass('pad2Flash');
@@ -286,6 +331,7 @@ function padTwoFlash() {
 }
 
 function padThreeFlash() {
+  gameSounds[currentSound].soundThree.play();
   $('.pad3').toggleClass('pad3Flash');
   setTimeout(function () {
     $('.pad3').toggleClass('pad3Flash');
@@ -293,11 +339,14 @@ function padThreeFlash() {
 }
 
 function padFourFlash() {
+  gameSounds[currentSound].soundFour.play();
   $('.pad4').toggleClass('pad4Flash');
   setTimeout(function () {
     $('.pad4').toggleClass('pad4Flash');
   }, flashTime)
 }
+
+// ***************************
 
 });
 
@@ -317,3 +366,5 @@ function padFourFlash() {
 
 //map styling to buchla 223
 //multiple sountsets
+
+//data store highscore
