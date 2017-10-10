@@ -69,7 +69,6 @@ $(document).ready(function () {
 
   //using mouse / pointer entry
   var clickListener = $('.pad').click(function(){
-    console.log(this.id.toString());
     userData = this.id;
     if (userData === 'pad1'){
       padOneFlash();
@@ -184,9 +183,7 @@ function renderSimonData() {
 // compares user input to Simon Data;
 function checkClick() {
   if (userData === simonData[userCount]) {
-    console.log('good click');
     userCount += 1;
-    console.log('usercount = ' + userCount)
     winCheck();
   } else {
     scoreBoard = 0;
@@ -205,7 +202,6 @@ function winCheck() {
 // if bad click... 
 function badClick() {
   simonCount = 1;
-  console.log('bad click');
   window.clearTimeout(clock);
   $('.pad').toggleClass('loser');
   $('.scoreBoard').text("Score: " + scoreBoard);
@@ -221,18 +217,22 @@ function startTimer() {
 
 //advance to next stage.
 function nextStage() {
-  setTimeout(function () { $('.pad').toggleClass('winner') }, 200);
-  setTimeout(function () { $('.pad').toggleClass('winner'); }, 400);
-  setTimeout(function () { $('.pad').toggleClass('winner') }, 600);
-  setTimeout(function () { $('.pad').toggleClass('winner'); }, 800);
   scoreBoard += scoreUp;
   simonData = [];
   userCount = 0;
   simonCount += countInteger;
-  console.log('next stage');
   window.clearTimeout(clock);
   timerDuration = (400 * simonCount) + 200;
+  winFlash();
   setTimeout(getSimonData, flashTime * 2);
+}
+
+//stage advance animation
+function winFlash (){
+  setTimeout(function () { $('.pad').toggleClass('winner') }, 200);
+  setTimeout(function () { $('.pad').toggleClass('winner'); }, 400);
+  setTimeout(function () { $('.pad').toggleClass('winner') }, 600);
+  setTimeout(function () { $('.pad').toggleClass('winner'); }, 800);
 }
 
 //pad flash render functions... 
@@ -269,7 +269,7 @@ function padFourFlash() {
 //vision impaired mode
 //rotating backgroudns based on soundset
 //special layout for mobile w. clicks / minimal ui
-////Normal/Expert toggles setTimeout interval
+////Normal/Expert toggles setTimeout interval (CHECK!!!)
 //flash state === keydown duration
 //era toggle selects soundset
 //custom soundsets
