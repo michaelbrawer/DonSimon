@@ -64,7 +64,7 @@ var difficultyButtons = $('.difficulty').on('click', function(){
       init();
       }
   }
-  // $('.pad').removeClass('loser');
+  $('.pad').removeClass('loser');
 })
 
   //difficulty mode buttons (OLD)
@@ -149,11 +149,7 @@ var difficultyButtons = $('.difficulty').on('click', function(){
 
   // ************************
 
-});
-
-// ************************
-
-/*----- functions -----*/
+  /*----- functions -----*/
 //initializes gamestate/variables:
 function init() {
   if (expertMode) {
@@ -263,6 +259,8 @@ function nextStage() {
   setTimeout(getSimonData, flashTime * 2);
 }
 
+//rendering functions//
+
 //stage advance animation
 function winFlash (){
   setTimeout(function () { $('.pad').toggleClass('winner') }, 200);
@@ -300,6 +298,12 @@ function padFourFlash() {
     $('.pad4').toggleClass('pad4Flash');
   }, flashTime)
 }
+
+});
+
+// ************************
+
+
 
 //icebox:
 //PaperJs render animations for button flash
