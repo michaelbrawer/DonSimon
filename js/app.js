@@ -237,7 +237,8 @@ function nextStage() {
 
 //icebox:
 //PaperJs render animations for button flash
-
+//vision impaired mode
+//rotating backgroudns based on soundset
 //special layout for mobile w. clicks / minimal ui
 ////Normal/Expert toggles setTimeout interval
 //flash state === keydown duration
