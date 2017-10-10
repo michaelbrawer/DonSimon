@@ -46,12 +46,24 @@ $(document).ready(function () {
 
   var gameSounds = {
     set1963: {
-      soundOne: 'sound1',
-      soundTwo: 'sound2',
-      soundThree: 'sound3',
-      soundFour: 'sound4',
-      winSound: 'win sound',
-      loseSound: 'lose sound'
+      soundOne: new Howl({
+        src: ['/assets/sounds/60H1.mp3']
+      }),
+      soundTwo: new Howl({
+        src: ['/assets/sounds/60H2.mp3']
+      }),
+      soundThree: new Howl({
+        src: ['/assets/sounds/60H3.mp3']
+      }),
+      soundFour: new Howl({
+        src: ['/assets/sounds/60H4.mp3']
+      }),
+      winSound: new Howl({
+        src: ['/assets/sounds/60sWin.mp3']
+      }),
+      loseSound: new Howl({
+        src: ['/assets/sounds/60sLoseLong.mp3']
+      })
     },
     set1970: {
       soundOne: new Howl({
@@ -74,12 +86,24 @@ $(document).ready(function () {
       }),
     },
     set2004: {
-      soundOne: 'sound1',
-      soundTwo: 'sound2',
-      soundThree: 'sound3',
-      soundFour: 'sound4',
-      winSound: 'win sound',
-      loseSound: 'lose sound'
+      soundOne: new Howl({
+        src: ['/assets/sounds/20lo1.mp3']
+      }),
+      soundTwo: new Howl({
+        src: ['/assets/sounds/20lo2.mp3']
+      }),
+      soundThree: new Howl({
+        src: ['/assets/sounds/20lo3.mp3']
+      }),
+      soundFour: new Howl({
+        src: ['/assets/sounds/20lo4.mp3']
+      }),
+      winSound: new Howl({
+        src: ['/assets/sounds/20win3.mp3']
+      }),
+      loseSound: new Howl({
+        src: ['/assets/sounds/20lose.mp3']
+      })
     }
   }
   // ************************
@@ -114,12 +138,15 @@ var gameButtons = $('button').on('click', function(){
       break;
       case '1963':
         $('body').css('background-image', 'url(https://i.imgur.com/Q3lyGYn.jpg)');
+        currentSound = 'set1963';
         break;
       case '1970':
         $('body').css('background-image', 'url(https://i.imgur.com/JV5PToT.jpg)');
+        currentSound = 'set1970';
         break;
       case '2004':
         $('body').css('background-image', 'url(https://i.imgur.com/fwktNlT.jpg)');
+        currentSound = "set2004"
         break;
       default:
         return;
@@ -248,9 +275,9 @@ function checkClick() {
     winCheck();
   } else {
     scoreBoard = 0;
-    setTimeout(function(){gameSounds[currentSound].loseSound.play()}, 400);
+    setTimeout(function(){gameSounds[currentSound].loseSound.play()
     badClick();
-            
+    }, 400);
   }
 }
 
