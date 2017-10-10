@@ -36,6 +36,8 @@ var expertMode = false;
 //soundSet currently active, targets gameSound array...
 var currentSound;
 
+
+
 //jQuery wrapper function
 
 $(document).ready(function () {
@@ -47,25 +49,42 @@ $(document).ready(function () {
 
   /*----- event listeners -----*/
 
-  //difficulty mode buttons
-  var expertButton = $('#expertButton').on('click', function () {
-    era = this.id;
+  //mode buttons
+var difficultyButtons = $('.difficulty').on('click', function(){
+  if (this.id === "expertButton") {
     if (expertMode){return} else {
-    init();
-    expertMode = true;
-    gameOne = false;
-    $('.pad').removeClass('loser');
-    }
-  })
+      expertMode = true;
+      gameOne = false;
+      init();
+      }
+  } else if (this.id === 'normal button') {
+    if (!expertMode){return} else {
+      expertMode = false;
+      gameOne = false;
+      init();
+      }
+  }
+  // $('.pad').removeClass('loser');
+})
 
-  var normalButton = $('#normalButton').on('click', function () {
-    if (!expertMode){return}{
-    init();
-    expertMode = false;
-    gameOne = false;
-    $('.pad').removeClass('loser');
-    }
-  })
+  //difficulty mode buttons (OLD)
+  // var expertButton = $('#expertButton').on('click', function () {
+  //   if (expertMode){return} else {
+  //   init();
+  //   expertMode = true;
+  //   gameOne = false;
+  //   $('.pad').removeClass('loser');
+  //   }
+  // })
+
+  // var normalButton = $('#normalButton').on('click', function () {
+  //   if (!expertMode){return} else {
+  //   init();
+  //   expertMode = false;
+  //   gameOne = false;
+  //   $('.pad').removeClass('loser');
+  //   }
+  // })
 
   //sound set selector buttons
   var chooseSound = $('.soundset').on('click', function(){
@@ -75,7 +94,7 @@ $(document).ready(function () {
       $('body').css('background-image', 'url(https://i.imgur.com/JV5PToT.jpg)');
     } else if (this.id === '2004'){
       $('body').css('background-image', 'url(https://i.imgur.com/fwktNlT.jpg)');
-    }
+    } else {return}
   });
 
   //using mouse / pointer entry
