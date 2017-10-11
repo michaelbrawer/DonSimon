@@ -1,12 +1,12 @@
 # DonSimon
 ## A Buchla Electric Music Box Themed Simon Clone.
 
-###Core Technologies Used:
+###Core Technologies Used:##
 *HTML
 *CSS
 *Javascript
 
-###Additional Frameworks:
+###Additional Frameworks:###
 *jQuery - for DOM traversal / event handling
 *Bootstrap - for styling / responsive grid
 *Howler JS - for audio implmentation
