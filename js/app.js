@@ -2,14 +2,13 @@
 
 
 /*----- app's state (variables) -----*/
-//sets scoreboard load state:
-var scoreBoard = 0;
+
+//sets score displayed on scoreboard
+var scoreBoard;
 //integer for scoreboard to increase
 var scoreUp;
 //sets length of turn
 var simonCount;
-
-simonCount = 1
 //stores Simon Array
 var simonData;
 //holds keydown data
@@ -31,114 +30,117 @@ var clock;
 //how many steps does each stage increment by
 var countInteger;
 //is expert mode engaged
-var expertMode = false;
-//soundSet currently active, targets gameSound array...
+var expertMode;
+//soundSet currently active, targets gameSound array
 var currentSound;
-//loads default set
-currentSound = 'set1970';
-//awaiting start of game. 
-gameOn = false;
 //holds crazy counter mode
 var crazyCounter;
 
-//array containing gamesound addresses
-
+//default state on page load...
+gameOn = false;
+simonCount = 1;
+currentSound = 'set1970';
+expertMode = false;
+scoreBoard = 0;
 
 
 //jQuery wrapper function
 
 $(document).ready(function () {
 
-  var gameSounds = {
-    initSound: {
-      loadSound: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/hw7rlg8fiwmwkvx/wipe.mp3?dl=1'],
-        buffer: true
-      })
-    },
-    set1963: {
-      soundOne: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/lkipjekblqr43gk/60H1.mp3?dl=1'],
-        buffer: true
-      }),
-      soundTwo: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/rjdruv4d55l7q7f/60H2.mp3?dl=1'],
-        buffer: true
-      }),
-      soundThree: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/vk8z6jwbnlubooz/60H3.mp3?dl=1'],
-        buffer: true
-      }),
-      soundFour: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/sy394rdoyk03l25/60H4.mp3?dl=1'],
-        buffer: true
-      }),
-      winSound: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/w326tg4f3egg9id/60sWin.mp3?dl=1'],
-        buffer: true
-      }),
-      loseSound: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/2mztl3bqmsds7aw/60sLoseLong.mp3?dl=1'],
-        buffer: true
-      })
-    },
-    set1970: {
-      soundOne: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/g96ez1oxzo4p9z3/70sHi1.mp3?dl=1'],
-        buffer: true
-      }),
-      soundTwo: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/v1agv03lkjqj9cu/70sHi2.mp3?dl=1'],
-        buffer: true
-      }),
-      soundThree: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/xl4t6cmat3w5q22/70sHi3.mp3?dl=1'],
-        buffer: true
-      }),
-      soundFour: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/q8nve96p47vhbdn/70sHi4.mp3?dl=1'],
-        buffer: true
-      }),
-      winSound: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/qhx56tytluv7lyy/70swin1.mp3?dl=1'],
-        buffer: true
-      }),
-      loseSound: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/ps0tsokqrfcr8i5/70slose.mp3?dl=1'],
-        buffer: true
-      }),
-    },
-    set2004: {
-      soundOne: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/xig1n41i21q5ae8/20Hi1.mp3?dl=1'],
-        buffer: true
-      }),
-      soundTwo: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/8oplugay2rojsez/20Hi2.mp3?dl=1'],
-        buffer: true
-      }),
-      soundThree: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/1cimx83x395vc1d/20Hi3.mp3?dl=1'],
-        buffer: true
-      }),
-      soundFour: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/7juppthphjpp2t3/20Hi4.mp3?dl=1'],
-        buffer: true
-      }),
-      winSound: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/b3j6i84nf5xecby/20Win1.mp3?dl=1'],
-        buffer: true
-      }),
-      loseSound: new Howl({
-        src: ['https://dl.dropboxusercontent.com/s/f00twi2mlt6djbk/20lose.mp3?dl=1'],
-        buffer: true
-      })
-    }
-  }
-  // ************************
+// ************************
+
 
   /*----- cached element references -----*/
 
+    //array containing gamesound addresses
+    var gameSounds = {
+      initSound: {
+        loadSound: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/hw7rlg8fiwmwkvx/wipe.mp3?dl=1'],
+          buffer: true
+        })
+      },
+      set1963: {
+        soundOne: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/lkipjekblqr43gk/60H1.mp3?dl=1'],
+          buffer: true
+        }),
+        soundTwo: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/rjdruv4d55l7q7f/60H2.mp3?dl=1'],
+          buffer: true
+        }),
+        soundThree: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/vk8z6jwbnlubooz/60H3.mp3?dl=1'],
+          buffer: true
+        }),
+        soundFour: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/sy394rdoyk03l25/60H4.mp3?dl=1'],
+          buffer: true
+        }),
+        winSound: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/w326tg4f3egg9id/60sWin.mp3?dl=1'],
+          buffer: true
+        }),
+        loseSound: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/2mztl3bqmsds7aw/60sLoseLong.mp3?dl=1'],
+          buffer: true
+        })
+      },
+      set1970: {
+        soundOne: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/g96ez1oxzo4p9z3/70sHi1.mp3?dl=1'],
+          buffer: true
+        }),
+        soundTwo: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/v1agv03lkjqj9cu/70sHi2.mp3?dl=1'],
+          buffer: true
+        }),
+        soundThree: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/xl4t6cmat3w5q22/70sHi3.mp3?dl=1'],
+          buffer: true
+        }),
+        soundFour: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/q8nve96p47vhbdn/70sHi4.mp3?dl=1'],
+          buffer: true
+        }),
+        winSound: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/qhx56tytluv7lyy/70swin1.mp3?dl=1'],
+          buffer: true
+        }),
+        loseSound: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/ps0tsokqrfcr8i5/70slose.mp3?dl=1'],
+          buffer: true
+        }),
+      },
+      set2004: {
+        soundOne: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/xig1n41i21q5ae8/20Hi1.mp3?dl=1'],
+          buffer: true
+        }),
+        soundTwo: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/8oplugay2rojsez/20Hi2.mp3?dl=1'],
+          buffer: true
+        }),
+        soundThree: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/1cimx83x395vc1d/20Hi3.mp3?dl=1'],
+          buffer: true
+        }),
+        soundFour: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/7juppthphjpp2t3/20Hi4.mp3?dl=1'],
+          buffer: true
+        }),
+        winSound: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/b3j6i84nf5xecby/20Win1.mp3?dl=1'],
+          buffer: true
+        }),
+        loseSound: new Howl({
+          src: ['https://dl.dropboxusercontent.com/s/f00twi2mlt6djbk/20lose.mp3?dl=1'],
+          buffer: true
+        })
+      }
+    }
+  
   /*----- event listeners -----*/
 
   //soundset and mode buttons
@@ -186,7 +188,7 @@ $(document).ready(function () {
   })
 
 
-  // using mouse / pointer entry
+  // game play using mouse / pointer entry
   var clickListener = $('.pad').click(function () {
     if (gameOn) {
       userData = this.id;
@@ -241,7 +243,7 @@ $(document).ready(function () {
 
   /*----- GamePlay functions -----*/
 
-  //initializes gamestate/variables:
+  //initializes gameplay / mode variables / readies play state:
   function init() {
     if (expertMode) {
       countInteger = 2;
@@ -255,18 +257,16 @@ $(document).ready(function () {
       flashTime = 340;
       scoreUp = 10;
     }
-    gameSounds.initSound.loadSound.play()
-    renderScore();
     simonData = [];
     userCount = 0;
     gameOn = true;
+    gameSounds.initSound.loadSound.play()
+    renderScore();
     $('.pad').removeClass('loser');
     getSimonData();
   }
 
-  
-
-  //generate random data...
+  //generate random data for simon...
   function getSimonData() {
 
     for (var i = 0; i < simonCount; i++) {
@@ -289,7 +289,6 @@ $(document).ready(function () {
     if (gameOn) {
       $('#display').text('Simon Turn')
       setTimeout(startTimer, timerDuration + (flashTime * (simonCount)));
-      //consider lowering this offset...
       var offset = 200;
       for (var i = 0; i < simonData.length; i++) {
         if (simonData[i] === 'pad1') {
@@ -314,7 +313,6 @@ $(document).ready(function () {
     } else {
       gameOn = false;
       scoreBoard = 0;
-
       badClick();
     }
   }
@@ -324,7 +322,6 @@ $(document).ready(function () {
     if (userCount === simonData.length) {
       nextStage();
       renderScore();
-      // window.clearTimeout(startTimer);
     }
   }
   // if bad click... 
@@ -336,7 +333,7 @@ $(document).ready(function () {
     loseFlash();
   }
 
-  // starts countDown for user turn
+  // starts global countDown for user turn upon completion of simon render animation... 
   function startTimer() {
     $('#display').text('User Turn');
     window.clearTimeout(clock);
@@ -356,9 +353,10 @@ $(document).ready(function () {
   }
 
   //user input rendering functions//
+
   // **************************
 
-  //stage advance animation
+  //stage advance / loss animation
   function winFlash() {
     setTimeout(function () { gameSounds[currentSound].winSound.play() }, 300);
     setTimeout(function () { $('.pad').toggleClass('winner') }, 200);
@@ -419,8 +417,6 @@ $(document).ready(function () {
     }
   }
 
-  // ***************************
-
   //popover handling
   $('[data-toggle="popover"]').popover()
   $('[data-toggle="tooltip"]').tooltip()
@@ -431,7 +427,8 @@ $(document).ready(function () {
     $('.popover').hide();
   });
 
-// setTimeout(console.clear(), 3000);
+// ***************************
+
 });
 
 // ************************
