@@ -52,88 +52,85 @@ $(document).ready(function () {
   var gameSounds = {
     initSound: {
       loadSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/wipe.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/hw7rlg8fiwmwkvx/wipe.mp3?dl=1'],
         buffer: true
-      }),
-      loadSound2: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
       })
     },
     set1963: {
       soundOne: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/60H1.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/lkipjekblqr43gk/60H1.mp3?dl=1'],
         buffer: true
       }),
       soundTwo: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/60H2.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/rjdruv4d55l7q7f/60H2.mp3?dl=1'],
         buffer: true
       }),
       soundThree: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/60H3.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/vk8z6jwbnlubooz/60H3.mp3?dl=1'],
         buffer: true
       }),
       soundFour: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/60H4.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/sy394rdoyk03l25/60H4.mp3?dl=1'],
         buffer: true
       }),
       winSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/60sWin.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/w326tg4f3egg9id/60sWin.mp3?dl=1'],
         buffer: true
       }),
       loseSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/60sLoseLong.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/2mztl3bqmsds7aw/60sLoseLong.mp3?dl=1'],
         buffer: true
       })
     },
     set1970: {
       soundOne: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/g96ez1oxzo4p9z3/70sHi1.mp3?dl=1'],
         buffer: true
       }),
       soundTwo: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi2.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/v1agv03lkjqj9cu/70sHi2.mp3?dl=1'],
         buffer: true
       }),
       soundThree: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi3.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/xl4t6cmat3w5q22/70sHi3.mp3?dl=1'],
         buffer: true
       }),
       soundFour: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi4.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/q8nve96p47vhbdn/70sHi4.mp3?dl=1'],
         buffer: true
       }),
       winSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70swin1.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/qhx56tytluv7lyy/70swin1.mp3?dl=1'],
         buffer: true
       }),
       loseSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70slose.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/ps0tsokqrfcr8i5/70slose.mp3?dl=1'],
         buffer: true
       }),
     },
     set2004: {
       soundOne: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/20Hi1-3ej7.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/xig1n41i21q5ae8/20Hi1.mp3?dl=1'],
         buffer: true
       }),
       soundTwo: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/20Hi2.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/8oplugay2rojsez/20Hi2.mp3?dl=1'],
         buffer: true
       }),
       soundThree: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/20Hi3-c54m.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/1cimx83x395vc1d/20Hi3.mp3?dl=1'],
         buffer: true
       }),
       soundFour: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/20Hi4.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/7juppthphjpp2t3/20Hi4.mp3?dl=1'],
         buffer: true
       }),
       winSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/20Win1.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/b3j6i84nf5xecby/20Win1.mp3?dl=1'],
         buffer: true
       }),
       loseSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/20lose.mp3'],
+        src: ['https://dl.dropboxusercontent.com/s/f00twi2mlt6djbk/20lose.mp3?dl=1'],
         buffer: true
       })
     }
@@ -250,6 +247,7 @@ $(document).ready(function () {
       countInteger = 2;
       timerDuration = (320 * simonCount) + 150;
       flashTime = 340;
+      // flashTime = crazyCounter;
       scoreUp = 35;
     } else {
       countInteger = 1;
@@ -266,18 +264,7 @@ $(document).ready(function () {
     getSimonData();
   }
 
-  function getCrazyCounter() {
-    var newCrazy = Math.random * 450;
-    if (newCrazy < 150) {
-      crazyCounter = 150
-    }
-    else if (newCrazy > 400) {
-      crazyCounter = 400
-    }
-    else {
-      crazyCounter = newCrazy
-    }
-  }
+  
 
   //generate random data...
   function getSimonData() {
@@ -444,25 +431,35 @@ $(document).ready(function () {
     $('.popover').hide();
   });
 
-// setTimeout(console.clear(), 2000);
+// setTimeout(console.clear(), 3000);
 });
 
 // ************************
 
-
+//random timer for future crazy mode implementation
+function getCrazyCounter() {
+  var newCrazy = (Math.random() * 450);
+  if (newCrazy < 150) {
+    newCrazy = 150
+  }
+  else if (newCrazy > 400) {
+    newCrazy = 400
+  }
+  crazyCounter = newCrazy
+}
 
 //icebox:
 //PaperJs render animations for button flash
 //vision impaired mode
 //rotating backgroudns based on soundset (CHECK!!!)
-//instructions popover
+//instructions popover (CHECK!!)
 //gameplay on clicks & key entry (CHECK!!!)
-//special layout for mobile w. clicks / minimal ui
+//special layout for mobile w. clicks / minimal (CHECK!!)
 ////Normal/Expert toggles setTimeout interval (CHECK!!!)
 //era toggle selects soundset (CHECK!!!)
-//custom soundsets
+//custom soundsets (CHECK!!)
 
 //map styling to buchla 223
-//multiple sountsets
+//multiple sountsets (CHECK!!!)
 
 //data store highscore
