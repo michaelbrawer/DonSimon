@@ -67,19 +67,10 @@ span.text-muted {
 }
 
 .scoreBoard {
-  display: inline-flex;
-  /* float: center; */
-  text-align: center;
+  float: center;
+  /* text-align: right; */
   font-size: 20px;
   color: rgba(98, 113, 120, 1);
-}
-
-.btn {
-  border: none;
-}
-
-.btn:focus, .btn:active:focus, .btn.active:focus {
-  outline: 0 none;
 }
 
 .btn.difficulty:active, .btn.soundset:active, .btn.soundset:active:focus{
@@ -98,22 +89,9 @@ span.text-muted {
   outline: none;
 }
 
-.btn-group.soundset{
-  float: left;
-  margin-left: 15px;
-}
-
-.btn-group.difficulty{
-  float: right;
-  margin-right: 25px;
-}
-
-.btn.soundset{
-  background-color: rgba(98, 113, 120, 1);
-}
-
 .btn.difficulty{
   color: rgba(98, 113, 120, 1);  
+  /* float: center; */
 }
 
 /* off colors state  material ui level 300 FLASH 800 */
@@ -188,4 +166,8 @@ span.text-muted {
 #display {
   color: rgba(96, 125, 139,1.0);
   cursor: pointer;
+}
+
+.soundset.btn-group {
+  margin-left: 25px !important;
 }

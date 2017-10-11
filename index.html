@@ -7,15 +7,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.js" charset="utf-8"></script>
-  <script type="text/javascript" src="assets/paper-full.js"></script>
+  <script type="text/javascript" src="./assets/paper-full.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/app.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Raleway" rel="stylesheet">
   <title>DonSimon</title>
 </head>
+<!-- <script type="text/paperscript" canvas="myCanvas"></script> -->
 
 <body>
+
   <div class="container">
     <div class="page-header">
       <h1>Don Simon</h1>
@@ -30,17 +32,19 @@
         <div id ='pad4' class="pad col-xs-6 pad4"></div>
       </div>
     </div>
-
-    <div class="btn-group soundset" data-toggle="buttons-radio" role="group" aria-label="...">
-      <button id="1963" type="radio" name="soundsets" data-toggle="buttons-radio" class="btn-info soundset btn btn-secondary">1963</button>
-      <button id="1970" type="radio" name="soundsets" data-toggle="buttons-radio" class="btn-info soundset btn btn-secondary">1970</button>
-      <button id="2004" type="radio" name="soundsets" data-toggle="buttons-radio" class="btn-info soundset btn btn-secondary">2004</button>
+    <div class="row">
+        <div id="soundsetGroup" class="btn-group soundset" data-toggle='buttons' role="group" aria-label="...">
+            <button id="1963" type="radio" data-toggle="button" name="soundsets" class="btn-sm btn-info soundset btn btn-secondary">1963</button>
+            <button id="1970" type="radio" data-toggle="button" name="soundsets" class="btn-sm btn-info soundset btn btn-secondary" aria-pressed="true">1970</button>
+            <button id="2004" type="radio" data-toggle="button" name="soundsets" class="btn-sm btn-info soundset btn btn-secondary">2004</button>
+          </div>
+          <div id="difficultyGroup" class="btn-group difficulty pull-right" data-toggle="buttons" role="group" aria-label="...">
+            <button id="normalButton" type="radio" name="difficulty" data-toggle="button" class="btn-sm btn difficulty btn-secondary">Normal</button>
+            <button id="expertButton" type="radio" name="difficulty" data-toggle="button" class="btn-sm btn difficulty btn-secondary">Expert</button>
+            <button id="instructions" type="radio" name="difficulty" data-toggle="button" class="btn-sm btn difficulty btn-secondary">Help</button>
+          </div>
     </div>
-
-    <div class="btn-group difficulty" data-toggle="buttons-radio" role="group" aria-label="...">
-      <button id="normalButton" type="radio" name="difficulty" data-toggle="buttons-radio" class="btn difficulty btn-secondary">Normal</button>
-      <button id="expertButton" type="radio" name="difficulty" data-toggle="buttons-radio" class="btn difficulty btn-secondary">Expert</button>
-    </div>
+    
     <div class="scoreBoard">Score: 0</div>
   </div>
   <footer class="footer">
@@ -48,6 +52,7 @@
       <span id="display" class="text-muted">click / press spacebar to begin</span>
     </div>
   </footer>
+
 </body>
 
 </html>

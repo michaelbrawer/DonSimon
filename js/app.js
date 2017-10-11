@@ -147,14 +147,17 @@ $(document).ready(function () {
         break;
       case '1963':
         $('body').css('background-image', 'url(https://i.imgur.com/Q3lyGYn.jpg)');
+        // $(this).addClass('active').siblings('.soundset').removeClass('active');
         currentSound = 'set1963';
         break;
       case '1970':
         $('body').css('background-image', 'url(https://i.imgur.com/JV5PToT.jpg)');
+        // $(this).addClass('active').siblings('.soundset').removeClass('active');
         currentSound = 'set1970';
         break;
       case '2004':
         $('body').css('background-image', 'url(https://i.imgur.com/O6Pik1v.jpg)');
+        // $(this).addClass('active').siblings('.soundset').removeClass('active');
         currentSound = "set2004"
         break;
       default:
@@ -187,22 +190,22 @@ $(document).ready(function () {
   var keyListener = $('body').on('keydown', function (evt) {
 
     if (event.keyCode == 84 && gameOn === true) {
-      console.log("Enter Pad T")
+      //key enter "T"
       userData = "pad1";
       checkClick();
       if (gameOn) { padOneFlash() }
     } else if (event.keyCode == 71 && gameOn === true) {
-      console.log('enter press G');
+      //key enter "G"
       userData = "pad2";
       checkClick();
       if (gameOn) { padTwoFlash() }
     } else if (event.keyCode == 89 && gameOn === true) {
-      console.log('enter press Y');
+      //key enter Y
       userData = "pad3";
       checkClick();
       if (gameOn) { padThreeFlash() }
     } else if (event.keyCode == 72 && gameOn === true) {
-      console.log('enter press H');
+      //key enter H
       userData = "pad4";
       checkClick();
       if (gameOn) { padFourFlash() }
@@ -254,7 +257,6 @@ $(document).ready(function () {
         simonData.push("pad4");
       }
     }
-    console.log(simonData);
     if (gameOn) { renderSimonData() }
   }
 
@@ -405,9 +407,10 @@ $(document).ready(function () {
 //PaperJs render animations for button flash
 //vision impaired mode
 //rotating backgroudns based on soundset (CHECK!!!)
+//instructions popover
+//gameplay on clicks & key entry (CHECK!!!)
 //special layout for mobile w. clicks / minimal ui
 ////Normal/Expert toggles setTimeout interval (CHECK!!!)
-//flash state === keydown duration
 //era toggle selects soundset (CHECK!!!)
 //custom soundsets
 
