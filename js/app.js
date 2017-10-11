@@ -50,30 +50,30 @@ $(document).ready(function () {
   var gameSounds = {
     initSound: {
       loadSound: new Howl({
-        src: ['/assets/sounds/60L3.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/wipe.mp3']
       }),
       loadSound2: new Howl({
-        src: ['/assets/sounds/60L3.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
       })
     },
     set1963: {
       soundOne: new Howl({
-        src: ['/assets/sounds/60H1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/60H1.mp3']
       }),
       soundTwo: new Howl({
-        src: ['/assets/sounds/60H2.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/60H2.mp3']
       }),
       soundThree: new Howl({
-        src: ['/assets/sounds/60H3.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/60H3.mp3']
       }),
       soundFour: new Howl({
-        src: ['/assets/sounds/60H4.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/60H4.mp3']
       }),
       winSound: new Howl({
-        src: ['/assets/sounds/60sWin.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/60sWin.mp3']
       }),
       loseSound: new Howl({
-        src: ['/assets/sounds/60sLoseLong.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/60sLoseLong.mp3']
       })
     },
     set1970: {
@@ -81,39 +81,39 @@ $(document).ready(function () {
         src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
       }),
       soundTwo: new Howl({
-        src: ['/assets/sounds/70sHi2.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi2.mp3']
       }),
       soundThree: new Howl({
-        src: ['/assets/sounds/70sHi3.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi3.mp3']
       }),
       soundFour: new Howl({
-        src: ['/assets/sounds/70sHi4.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi4.mp3']
       }),
       winSound: new Howl({
-        src: ['/assets/sounds/70swin1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70swin1.mp3']
       }),
       loseSound: new Howl({
-        src: ['/assets/sounds/70slose.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
       }),
     },
     set2004: {
       soundOne: new Howl({
-        src: ['/assets/sounds/20lo1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
       }),
       soundTwo: new Howl({
-        src: ['/assets/sounds/20lo2.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
       }),
       soundThree: new Howl({
-        src: ['/assets/sounds/20lo3.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
       }),
       soundFour: new Howl({
-        src: ['/assets/sounds/20lo4.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
       }),
       winSound: new Howl({
-        src: ['/assets/sounds/20win3.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
       }),
       loseSound: new Howl({
-        src: ['/assets/sounds/20lose.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
       })
     }
   }
