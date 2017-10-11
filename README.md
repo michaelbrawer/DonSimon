@@ -11,7 +11,7 @@
 - Bootstrap - for styling / responsive grid
 - Howler JS - for audio implmentation
 ----
-### Getting Started: Installation instructions:
+### Getting Started: Installation instructions: (HOSTING)
 ----
 DonSimon can be played via a touchscreen/mouse, but playing Simon is all about mashing buttons!  Fortunately for us, most users will have a bunch of great buttons right in front of them - aka the keyboard.  Accordingly, keys "T", "Y", "G" and "H" map to the pads in the game.  (Look at the keys, it makes sense).
 
@@ -22,7 +22,6 @@ Era toggles on the screen's left switch between 3 "eras" of Buchla synthesis:
 
 "Difficulty" toggle works two ways.  In easy mode, Simon increments by one move per turn, in difficult it increments by two.  In difficult mode, timers for flash duration and user count-out are also faster.
 
-For your game, this section will include the link to your hosted game's site.
 ----
 ### Next Steps: Unsolved problems and/or planned features:
 - Getting some slicker animations involved, possibly using paper JS.
