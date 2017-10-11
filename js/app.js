@@ -414,7 +414,7 @@ $(document).ready(function () {
 
   // ***************************
 });
-// setTimeout(console.clear(), 2000);
+setTimeout(console.clear(), 2000);
 // ************************
 
 
