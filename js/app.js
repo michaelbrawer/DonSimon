@@ -134,6 +134,7 @@ $(document).ready(function () {
           badClick();
           renderScore();
           $('#display').text('expert mode - click / space to start')
+          $('.page-header').css('background-color', 'rgba(198, 40, 40,.9)')
         }
         break;
       case 'normalButton':
@@ -143,6 +144,7 @@ $(document).ready(function () {
           badClick();
           renderScore();
           $('#display').text('normal mode - click / space to start')
+          $('.page-header').css('background-color', 'rgba(98, 113, 120, .7)')
         }
         break;
       case '1963':
