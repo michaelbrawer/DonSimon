@@ -209,6 +209,8 @@ span.text-muted {
   .container {
     margin-left: 10px;
     margin-right: 10px;
+  }
+  .container {
     margin-top: 25px;
   }
 }
