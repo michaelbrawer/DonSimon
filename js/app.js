@@ -50,7 +50,7 @@ $(document).ready(function () {
   var gameSounds = {
     initSound: {
       loadSound: new Howl({
-        src: ['/assets/sounds/wipe.mp3']
+        src: ['/assets/sounds/60L3.mp3']
       }),
       loadSound2: new Howl({
         src: ['/assets/sounds/60L3.mp3']
@@ -78,7 +78,7 @@ $(document).ready(function () {
     },
     set1970: {
       soundOne: new Howl({
-        src: ['/assets/sounds/70sHi1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
       }),
       soundTwo: new Howl({
         src: ['/assets/sounds/70sHi2.mp3']

@@ -69,9 +69,9 @@ span.text-muted {
 .scoreBoard {
   float: center;
   text-align: center;
-  /* text-align: right; */
   font-size: 20px;
   color: rgba(98, 113, 120, 1);
+  display: inline;
 }
 
 .btn.difficulty:active, .btn.soundset:active, .btn.soundset:active:focus{
@@ -83,16 +83,33 @@ span.text-muted {
 }
 
 .btn-group{
-  border: none;
-  /* margin-top: 5px; */
-  color: rgba(255, 254, 253, .9);
   margin-bottom: 5px;
-  outline: none;
 }
 
 .btn.difficulty{
-  color: rgba(98, 113, 120, 1);  
+  color: rgba(98, 113, 120, 1);
+  outline: none;
   /* float: center; */
+}
+
+.btn.soundset{
+  background-color: rgba(98, 113, 120, .7);
+  color: rgba(255, 254, 253, .9);
+  outline: none;
+  border: none;
+}
+
+.soundset.btn-group {
+  margin-left: 30px !important;
+  float: left;
+  color: rgba(98, 113, 120, 1);
+  border: none;
+  
+}
+
+.difficulty.btn-group{
+  float: right; 
+  margin-right: 30px;
 }
 
 /* off colors state  material ui level 300 FLASH 800 */
@@ -169,12 +186,3 @@ span.text-muted {
   cursor: pointer;
 }
 
-.soundset.btn-group {
-  margin-left: 25px !important;
-  float: left;
-}
-
-.difficulty.btn-group{
-  float: right; 
-  margin-right: 25px;
-}
