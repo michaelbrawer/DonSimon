@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  padding: 0px 50px auto 50px;
+  /* padding: 0px 50px auto 50px; */
   font-family: 'Raleway', sans-serif;
   background-image: url(https://i.imgur.com/JV5PToT.jpg);
   background-size: cover;
@@ -16,6 +16,7 @@ body {
 
 div {
   text-align: center;
+  margin: 0 auto;
 }
 
 h1{
@@ -43,14 +44,13 @@ span.text-muted {
 }
 
 
-.container{
+div.container{
   max-width: 500px;
   background-color: rgba(247, 245, 240, .9);
   border: 4px solid rgba(96, 125, 139,1.0);
   border-radius: 10px;
+  margin: 0 auto;
   margin-top: 15px;
-  /* margin-left: 10px;
-  margin-right: 10px; */
   float: center;
   -webkit-box-shadow: 0px 2px 15px 3px rgba(74,73,74,1);
   -moz-box-shadow: 0px 2px 15px 3px rgba(74,73,74,1);
@@ -205,9 +205,9 @@ span.text-muted {
   cursor: pointer;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 500px) {
   .container {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
   }
 }

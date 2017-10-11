@@ -43,7 +43,6 @@ currentSound = 'set1970';
 expertMode = false;
 scoreBoard = 0;
 
-
 //jQuery wrapper function
 
 $(document).ready(function () {
@@ -187,7 +186,6 @@ $(document).ready(function () {
     }
   })
 
-
   // game play using mouse / pointer entry
   var clickListener = $('.pad').click(function () {
     if (gameOn) {
@@ -210,7 +208,6 @@ $(document).ready(function () {
 
   //using key entry
   var keyListener = $('body').on('keydown', function (evt) {
-
     if (event.keyCode == 84 && gameOn === true) {
       //key enter "T"
       userData = "pad1";
@@ -233,7 +230,6 @@ $(document).ready(function () {
       if (gameOn) { padFourFlash() }
     } else if (event.keyCode == 32 && gameOn !== true) {
       init();
-
     } else {
       return;
     }
@@ -268,7 +264,6 @@ $(document).ready(function () {
 
   //generate random data for simon...
   function getSimonData() {
-
     for (var i = 0; i < simonCount; i++) {
       var randInt = Math.random();
       if (randInt > 0.75) {
