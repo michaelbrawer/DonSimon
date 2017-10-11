@@ -14,12 +14,25 @@ body {
   -moz-transition: background 0.2s;
 }
 
+.popover {
+  font-family: 'Raleway', sans-serif;
+  text-align: left;
+  font-size: 12px;
+}
+
+.popover{
+  width:150px;
+  height:200px;
+  overflow:visible;
+}
+
 div {
   text-align: center;
 
 }
 
 h1{
+  
   padding: 0;
   color: rgba(255, 254, 253, .9);
   margin-top: 10px;
@@ -94,7 +107,6 @@ span.text-muted {
 .btn.difficulty{
   color: rgba(98, 113, 120, 1);
   outline: none;
-  /* float: center; */
 }
 
 .btn.soundset{
@@ -115,6 +127,7 @@ span.text-muted {
 .difficulty.btn-group{
   float: right; 
   margin-right: 30px;
+  border: none;
 }
 
 /* off colors state  material ui level 300 FLASH 800 */

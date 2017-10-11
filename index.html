@@ -5,13 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.js" charset="utf-8"></script>
   <script type="text/javascript" src="./assets/paper-full.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/app.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Raleway" rel="stylesheet">
+  
   <title>DonSimon</title>
 </head>
 <!-- <script type="text/paperscript" canvas="myCanvas"></script> -->
@@ -43,8 +46,11 @@
           <div class="btn-group difficulty" data-toggle="buttons" role="group" aria-label="...">
             <button id="normalButton" type="button" name="difficulty" data-toggle="button" class="btn-sm btn difficulty btn-secondary">Normal</button>
             <button id="expertButton" type="button" name="difficulty" data-toggle="button" class="btn-sm btn difficulty btn-secondary">Expert</button>
-            <button id="help" type="button" name="difficulty" data-toggle="button" class="btn-sm btn btn-secondary">Help</button>
+            <button id="help" type="button" container="div.row" class="btn btn-sm btn-secondary focus" data-trigger="focus" data-placement="top" data-toggle="popover" data-content=
+            "DonSimon can be played via a touchscreen / mouse, but playing Simon is all about mashing buttons...  Accordingly, keys 'T', 'Y', 'G' and 'H' map to the pads in the game."
+            >Help</button>
           </div>
+          
           <div class="scoreBoard">Score: 0</div>
     </div>
     
@@ -56,5 +62,5 @@
   </footer>
 
 </body>
-<script>setTimeout(console.clear, 1000)</script>
+<script>setTimeout(console.clear, 500)</script>
 </html>

@@ -95,7 +95,7 @@ $(document).ready(function () {
         src: ['https://michael-brawer.squarespace.com/s/70swin1.mp3']
       }),
       loseSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70slose.mp3']
       }),
     },
     set2004: {
@@ -215,6 +215,7 @@ $(document).ready(function () {
       if (gameOn) { padFourFlash() }
     } else if (event.keyCode == 32 && gameOn !== true) {
       init();
+      
     } else {
       return;
     }
@@ -413,8 +414,17 @@ $(document).ready(function () {
   }
 
   // ***************************
+
+  $('[data-toggle="popover"]').popover()
+  $('[data-toggle="tooltip"]').tooltip()
+  $('.popover-dismiss').popover({
+    trigger: 'focus key'
+  })
+  $(document).keyup(function (event) {
+    $('.popover').hide();
 });
-setTimeout(console.clear(), 2000);
+});
+// setTimeout(console.clear(), 2000);
 // ************************
 
 

@@ -8,7 +8,7 @@
 
 ### Additional Frameworks:
 - jQuery - for DOM traversal / event handling
-- Bootstrap - for styling / responsive grid
+- Bootstrap - for styling / responsive box sizing
 - Howler JS - for audio implmentation
 ----
 ### Getting Started: Installation instructions: (HOSTING)
@@ -27,5 +27,6 @@ Era toggles on the screen's left switch between 3 "eras" of Buchla synthesis:
 - Getting some slicker animations involved, possibly using paper JS.
 - Mapping a larger, eight-pad game, to the principal touchkeys of a simulated Buchla 223e multi-dimensional   kinesthetic input tactile pad.
 - High-Score Persistance
+- crazy counter mode;\
 - Freeform mode: just play the pads
 - Drummer mode: sync flashes interpolated drum patterns via Olivier Gillet's excellent open source code for [Grids](https://github.com/pichenettes/eurorack/tree/master/grids)
