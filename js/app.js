@@ -52,7 +52,8 @@ $(document).ready(function () {
   var gameSounds = {
     initSound: {
       loadSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/wipe.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/wipe.mp3'],
+        buffer: true
       }),
       loadSound2: new Howl({
         src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
@@ -60,62 +61,80 @@ $(document).ready(function () {
     },
     set1963: {
       soundOne: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/60H1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/60H1.mp3'],
+        buffer: true
       }),
       soundTwo: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/60H2.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/60H2.mp3'],
+        buffer: true
       }),
       soundThree: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/60H3.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/60H3.mp3'],
+        buffer: true
       }),
       soundFour: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/60H4.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/60H4.mp3'],
+        buffer: true
       }),
       winSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/60sWin.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/60sWin.mp3'],
+        buffer: true
       }),
       loseSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/60sLoseLong.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/60sLoseLong.mp3'],
+        buffer: true
       })
     },
     set1970: {
       soundOne: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3'],
+        buffer: true
       }),
       soundTwo: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi2.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi2.mp3'],
+        buffer: true
       }),
       soundThree: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi3.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi3.mp3'],
+        buffer: true
       }),
       soundFour: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi4.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70sHi4.mp3'],
+        buffer: true
       }),
       winSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70swin1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70swin1.mp3'],
+        buffer: true
       }),
       loseSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70slose.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/70slose.mp3'],
+        buffer: true
       }),
     },
     set2004: {
       soundOne: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/20Hi1-3ej7.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/20Hi1-3ej7.mp3'],
+        buffer: true
       }),
       soundTwo: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/20Hi2.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/20Hi2.mp3'],
+        buffer: true
       }),
       soundThree: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/20Hi3-c54m.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/20Hi3-c54m.mp3'],
+        buffer: true
       }),
       soundFour: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/20Hi4.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/20Hi4.mp3'],
+        buffer: true
       }),
       winSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/20Win1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/20Win1.mp3'],
+        buffer: true
       }),
       loseSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/20lose.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/20lose.mp3'],
+        buffer: true
       })
     }
   }
@@ -415,6 +434,7 @@ $(document).ready(function () {
 
   // ***************************
 
+  //popover handling
   $('[data-toggle="popover"]').popover()
   $('[data-toggle="tooltip"]').tooltip()
   $('.popover-dismiss').popover({
@@ -423,8 +443,10 @@ $(document).ready(function () {
   $(document).keyup(function (event) {
     $('.popover').hide();
   });
-});
+
 // setTimeout(console.clear(), 2000);
+});
+
 // ************************
 
 
