@@ -71,15 +71,20 @@ span.text-muted {
   text-align: center;
   font-size: 20px;
   color: rgba(98, 113, 120, 1);
-  display: inline;
+  /* display: inline; */
 }
 
-.btn.difficulty:active, .btn.soundset:active, .btn.soundset:active:focus{
+.btn.difficulty:active, .btn#help:active, .btn.soundset:active, .btn.soundset:active:focus{
   box-shadow: none;
   background-color: rgba(198, 40, 40,.9);
   color: rgba(247, 245, 240, .9);
   outline: none;
   border: none;
+}
+
+.btn#help{
+  background-color: rgba(21, 101, 192,.9);
+  color: rgba(247, 245, 240, .9);
 }
 
 .btn-group{

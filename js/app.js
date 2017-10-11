@@ -98,22 +98,22 @@ $(document).ready(function () {
     },
     set2004: {
       soundOne: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/20Hi1-3ej7.mp3']
       }),
       soundTwo: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/20Hi2.mp3']
       }),
       soundThree: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/20Hi3-c54m.mp3']
       }),
       soundFour: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/20Hi4.mp3']
       }),
       winSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/20Win1.mp3']
       }),
       loseSound: new Howl({
-        src: ['https://michael-brawer.squarespace.com/s/70sHi1.mp3']
+        src: ['https://michael-brawer.squarespace.com/s/20lose.mp3']
       })
     }
   }
