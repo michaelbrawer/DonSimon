@@ -38,6 +38,8 @@ var currentSound;
 currentSound = 'set1970';
 //awaiting start of game. 
 gameOn = false;
+//holds crazy counter mode
+var crazyCounter;
 
 //array containing gamesound addresses
 
@@ -244,9 +246,22 @@ $(document).ready(function () {
     getSimonData();
   }
 
+  function getCrazyCounter() {
+    var newCrazy = Math.random * 450;
+    if (newCrazy < 150) {
+      crazyCounter = 150
+    }
+    else if (newCrazy > 400) {
+      crazyCounter = 400
+    }
+    else {
+      crazyCounter = newCrazy
+    }
+  }
+
   //generate random data...
   function getSimonData() {
-    
+
     for (var i = 0; i < simonCount; i++) {
       var randInt = Math.random();
       if (randInt > 0.75) {
@@ -398,9 +413,8 @@ $(document).ready(function () {
   }
 
   // ***************************
-
 });
-
+// setTimeout(console.clear(), 2000);
 // ************************
 
 

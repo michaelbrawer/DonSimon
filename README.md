@@ -26,5 +26,6 @@ Era toggles on the screen's left switch between 3 "eras" of Buchla synthesis:
 ### Next Steps: Unsolved problems and/or planned features:
 - Getting some slicker animations involved, possibly using paper JS.
 - Mapping a larger, eight-pad game, to the principal touchkeys of a simulated Buchla 223e multi-dimensional   kinesthetic input tactile pad.
+- High-Score Persistance
 - Freeform mode: just play the pads
 - Drummer mode: sync flashes interpolated drum patterns via Olivier Gillet's excellent open source code for [Grids](https://github.com/pichenettes/eurorack/tree/master/grids)
