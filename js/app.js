@@ -136,7 +136,7 @@ $(document).ready(function () {
           badClick();
           renderScore();
           $('#display').text('expert mode - click / space to start')
-          $('.page-header').css('background-color', 'rgba(198, 40, 40,.9)')
+          $('.page-header').css('background-color', 'rgba(198, 40, 40,.7)')
         }
         break;
       case 'normalButton':
@@ -215,7 +215,7 @@ $(document).ready(function () {
       if (gameOn) { padFourFlash() }
     } else if (event.keyCode == 32 && gameOn !== true) {
       init();
-      
+
     } else {
       return;
     }
@@ -422,7 +422,7 @@ $(document).ready(function () {
   })
   $(document).keyup(function (event) {
     $('.popover').hide();
-});
+  });
 });
 // setTimeout(console.clear(), 2000);
 // ************************

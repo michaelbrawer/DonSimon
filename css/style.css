@@ -14,17 +14,7 @@ body {
   -moz-transition: background 0.2s;
 }
 
-.popover {
-  font-family: 'Raleway', sans-serif;
-  text-align: left;
-  font-size: 12px;
-}
 
-.popover{
-  width:150px;
-  height:200px;
-  overflow:visible;
-}
 
 div {
   text-align: center;
@@ -32,7 +22,6 @@ div {
 }
 
 h1{
-  
   padding: 0;
   color: rgba(255, 254, 253, .9);
   margin-top: 10px;
@@ -80,39 +69,14 @@ span.text-muted {
 }
 
 .scoreBoard {
-  float: center;
   text-align: center;
   font-size: 20px;
   color: rgba(98, 113, 120, 1);
-  /* display: inline; */
 }
 
-.btn.difficulty:active, .btn#help:active, .btn.soundset:active, .btn.soundset:active:focus{
-  box-shadow: none;
-  background-color: rgba(198, 40, 40,.9);
-  color: rgba(247, 245, 240, .9);
-  outline: none;
-  border: none;
-}
-
-.btn#help{
-  background-color: rgba(21, 101, 192,.9);
-  color: rgba(247, 245, 240, .9);
-}
 
 .btn-group{
   margin-bottom: 5px;
-}
-
-.btn.difficulty{
-  color: rgba(98, 113, 120, 1);
-  outline: none;
-}
-
-.btn.soundset{
-  background-color: rgba(98, 113, 120, .7);
-  color: rgba(255, 254, 253, .9);
-  outline: none;
   border: none;
 }
 
@@ -120,14 +84,48 @@ span.text-muted {
   margin-left: 30px !important;
   float: left;
   color: rgba(98, 113, 120, 1);
-  border: none;
-  
 }
 
 .difficulty.btn-group{
   float: right; 
   margin-right: 30px;
-  border: none;
+}
+
+.btn {
+  outline: none !important;
+  border: none !important;
+}
+
+.btn.difficulty{
+  color: rgba(98, 113, 120, 1);
+}
+
+.btn.soundset{
+  background-color: rgba(98, 113, 120, .7);
+  color: rgba(255, 254, 253, .9);
+}
+
+.btn.focus .btn.difficulty:active, .btn#help:active, .btn.soundset:active, .btn.difficulty:active:focus, .btn.soundset:active:focus{
+  box-shadow: none;
+  background-color: rgba(198, 40, 40,.9);
+  color: rgba(247, 245, 240, .9);
+}
+
+.btn#help{
+  background-color: rgba(21, 101, 192,.9);
+  color: rgba(247, 245, 240, .9);
+}
+
+.popover {
+  font-family: 'Raleway', sans-serif;
+  text-align: left;
+  font-size: 12px;
+  transition: all 0.2s;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  width:150px;
+  height:200px;
+  overflow:visible;
 }
 
 /* off colors state  material ui level 300 FLASH 800 */
