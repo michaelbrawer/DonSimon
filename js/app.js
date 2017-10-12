@@ -35,7 +35,7 @@ var currentSound;
 //holds crazy counter mode
 var crazyCounter;
 //holds hi score
-var hiScore;
+var hiScore = 0;
 
 //default state on page load...
 gameOn = false;
