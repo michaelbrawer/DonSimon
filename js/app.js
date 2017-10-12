@@ -161,7 +161,7 @@ $(document).ready(function () {
           badClick();
           renderScore();
           $('#display').text('normal mode - click / space to start')
-          $('.page-header').css('background-color', 'rgba(98, 113, 120, .7)')
+          $('.page-header').css('background-color', 'rgba(21, 101, 192,.9)')
         }
         break;
       case '1963':
