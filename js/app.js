@@ -172,7 +172,7 @@ $(document).ready(function () {
         break;
       case '2004':
         $('body').css('background-image', 'url(https://i.imgur.com/O6Pik1v.jpg)');
-        currentSound = "set2004";
+        currentSound = 'set2004';
         break;
       default:
         return;
@@ -203,22 +203,22 @@ $(document).ready(function () {
   var keyListener = $('body').on('keydown', function (evt) {
     if (event.keyCode == 84 && gameOn === true) {
       //key enter "T"
-      userData = "pad1";
+      userData = 'pad1';
       checkClick();
       if (gameOn) { padOneFlash(); }
     } else if (event.keyCode == 71 && gameOn === true) {
       //key enter "G"
-      userData = "pad2";
+      userData = 'pad2';
       checkClick();
       if (gameOn) { padTwoFlash(); }
     } else if (event.keyCode == 89 && gameOn === true) {
-      //key enter Y
-      userData = "pad3";
+      //key enter "Y"
+      userData = 'pad3';
       checkClick();
       if (gameOn) { padThreeFlash(); }
     } else if (event.keyCode == 72 && gameOn === true) {
       //key enter H
-      userData = "pad4";
+      userData = 'pad4';
       checkClick();
       if (gameOn) { padFourFlash(); }
     } else if (event.keyCode == 32 && gameOn !== true) {
@@ -257,13 +257,13 @@ $(document).ready(function () {
     for (var i = 0; i < simonCount; i++) {
       var randInt = Math.random();
       if (randInt > 0.75) {
-        simonData.push("pad1");
+        simonData.push('pad1');
       } else if (randInt > 0.5) {
-        simonData.push("pad2");
+        simonData.push('pad2');
       } else if (randInt > 0.25) {
-        simonData.push("pad3");
+        simonData.push('pad3');
       } else {
-        simonData.push("pad4");
+        simonData.push('pad4');
       }
     }
     if (gameOn) { renderSimonData(); }
@@ -358,11 +358,11 @@ $(document).ready(function () {
   function renderScore() {
     if (hiScore !== null) {
       if (scoreBoard > hiScore) {
-        localStorage.setItem("hiScore", scoreBoard);
+        localStorage.setItem('hiScore', scoreBoard);
       }
     }
     hiScore = +localStorage.getItem('hiScore');
-    $('.scoreBoard').text("Hi-Score: " + hiScore + " Score: " + scoreBoard);
+    $('.scoreBoard').text('Hi-Score: ' + hiScore + " Score: " + scoreBoard);
   }
 
   // individual pad flash render functions... 
@@ -422,5 +422,5 @@ $(document).ready(function () {
 
 //resets hi Score locally
 function resetHiScore() {
-  localStorage.setItem("hiScore", 0);
+  localStorage.setItem('hiScore', 0);
 }
