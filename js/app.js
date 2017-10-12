@@ -34,6 +34,7 @@ var expertMode;
 var currentSound;
 //holds hi score
 var hiScore;
+
 //default state on page load...
 gameOn = false;
 simonCount = 1;
@@ -164,17 +165,14 @@ $(document).ready(function () {
         break;
       case '1963':
         $('body').css('background-image', 'url(https://i.imgur.com/Q3lyGYn.jpg)');
-        // $(this).addClass('active').siblings('.soundset').removeClass('active');
         currentSound = 'set1963';
         break;
       case '1970':
         $('body').css('background-image', 'url(https://i.imgur.com/JV5PToT.jpg)');
-        // $(this).addClass('active').siblings('.soundset').removeClass('active');
         currentSound = 'set1970';
         break;
       case '2004':
         $('body').css('background-image', 'url(https://i.imgur.com/O6Pik1v.jpg)');
-        // $(this).addClass('active').siblings('.soundset').removeClass('active');
         currentSound = "set2004"
         break;
       default:
@@ -239,7 +237,6 @@ $(document).ready(function () {
       countInteger = 2;
       timerDuration = (320 * simonCount) + 150;
       flashTime = 340;
-      // flashTime = crazyCounter;
       scoreUp = 35;
     } else {
       countInteger = 1;
@@ -368,10 +365,6 @@ $(document).ready(function () {
     $('.scoreBoard').text("Hi-Score: " + hiScore + " Score: " + scoreBoard);
   }
 
-  // function renderHiScore(){
-  //   $('.scoreBoard').text("Hi-Score: " + hiScore);
-  // }
-
   // individual pad flash render functions... 
   function padOneFlash() {
     if (gameOn) {
@@ -422,7 +415,7 @@ $(document).ready(function () {
   $(document).keyup(function (event) {
     $('.popover').hide();
   });
-  
+
   //render scoreboard on load.
   renderScore();
 });
