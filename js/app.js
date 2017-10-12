@@ -134,7 +134,7 @@ $(document).ready(function () {
         buffer: true
       })
     }
-  }
+  };
 
   /*----- event listeners -----*/
 
@@ -148,8 +148,8 @@ $(document).ready(function () {
           scoreBoard = 0;
           badClick();
           renderScore();
-          $('#display').text('expert mode - click / space to start')
-          $('.page-header').css('background-color', 'rgba(198, 40, 40,.7)')
+          $('#display').text('expert mode - click / space to start');
+          $('.page-header').css('background-color', 'rgba(198, 40, 40,.7)');
         }
         break;
       case 'normalButton':
@@ -158,8 +158,8 @@ $(document).ready(function () {
           scoreBoard = 0;
           badClick();
           renderScore();
-          $('#display').text('normal mode - click / space to start')
-          $('.page-header').css('background-color', 'rgba(21, 101, 192,.9)')
+          $('#display').text('normal mode - click / space to start');
+          $('.page-header').css('background-color', 'rgba(21, 101, 192,.9)');
         }
         break;
       case '1963':
@@ -172,12 +172,12 @@ $(document).ready(function () {
         break;
       case '2004':
         $('body').css('background-image', 'url(https://i.imgur.com/O6Pik1v.jpg)');
-        currentSound = "set2004"
+        currentSound = "set2004";
         break;
       default:
         return;
     }
-  })
+  });
 
   // game play using mouse / pointer entry
   var clickListener = $('.pad').click(function () {
@@ -193,7 +193,7 @@ $(document).ready(function () {
         padFourFlash();
       }
       checkClick();
-    } else { return }
+    } else { return; }
   });
 
   //click display to start
@@ -205,28 +205,28 @@ $(document).ready(function () {
       //key enter "T"
       userData = "pad1";
       checkClick();
-      if (gameOn) { padOneFlash() }
+      if (gameOn) { padOneFlash(); }
     } else if (event.keyCode == 71 && gameOn === true) {
       //key enter "G"
       userData = "pad2";
       checkClick();
-      if (gameOn) { padTwoFlash() }
+      if (gameOn) { padTwoFlash(); }
     } else if (event.keyCode == 89 && gameOn === true) {
       //key enter Y
       userData = "pad3";
       checkClick();
-      if (gameOn) { padThreeFlash() }
+      if (gameOn) { padThreeFlash(); }
     } else if (event.keyCode == 72 && gameOn === true) {
       //key enter H
       userData = "pad4";
       checkClick();
-      if (gameOn) { padFourFlash() }
+      if (gameOn) { padFourFlash(); }
     } else if (event.keyCode == 32 && gameOn !== true) {
       init();
     } else {
       return;
     }
-  })
+  });
 
   /*----- GamePlay functions -----*/
 
@@ -246,7 +246,7 @@ $(document).ready(function () {
     simonData = [];
     userCount = 0;
     gameOn = true;
-    gameSounds.initSound.loadSound.play()
+    gameSounds.initSound.loadSound.play();
     renderScore();
     $('.pad').removeClass('loser');
     getSimonData();
@@ -266,24 +266,24 @@ $(document).ready(function () {
         simonData.push("pad4");
       }
     }
-    if (gameOn) { renderSimonData() }
+    if (gameOn) { renderSimonData(); }
   }
 
   //playback simon data as an animation...
   function renderSimonData() {
     if (gameOn) {
-      $('#display').text('Simon Turn')
+      $('#display').text('Simon Turn');
       setTimeout(startTimer, timerDuration + (flashTime * (simonCount)));
       var offset = 200;
       for (var i = 0; i < simonData.length; i++) {
         if (simonData[i] === 'pad1') {
-          setTimeout(padOneFlash, (flashTime + offset))
+          setTimeout(padOneFlash, (flashTime + offset));
         } else if (simonData[i] === 'pad2') {
-          setTimeout(padTwoFlash, (flashTime + offset))
+          setTimeout(padTwoFlash, (flashTime + offset));
         } else if (simonData[i] === 'pad3') {
-          setTimeout(padThreeFlash, (flashTime + offset))
+          setTimeout(padThreeFlash, (flashTime + offset));
         } else if (simonData[i] === 'pad4') {
-          setTimeout(padFourFlash, (flashTime + offset))
+          setTimeout(padFourFlash, (flashTime + offset));
         }
         offset += (flashTime * 1.5);
       }
@@ -294,7 +294,7 @@ $(document).ready(function () {
   function startTimer() {
     $('#display').text('User Turn');
     window.clearTimeout(clock);
-    clock = window.setTimeout(badClick, timerDuration + 1000)
+    clock = window.setTimeout(badClick, timerDuration + 1000);
   }
 
   // compares user input to Simon Data;
@@ -321,7 +321,7 @@ $(document).ready(function () {
     window.clearTimeout(clock);
     gameOn = false;
     simonCount = 1;
-    gameSounds[currentSound].loseSound.play()
+    gameSounds[currentSound].loseSound.play();
     loseFlash();
     renderScore();
   }
@@ -341,10 +341,10 @@ $(document).ready(function () {
   //user input rendering functions//
   //stage advance / loss animation
   function winFlash() {
-    setTimeout(function () { gameSounds[currentSound].winSound.play() }, 300);
-    setTimeout(function () { $('.pad').toggleClass('winner') }, 200);
+    setTimeout(function () { gameSounds[currentSound].winSound.play(); }, 300);
+    setTimeout(function () { $('.pad').toggleClass('winner'); }, 200);
     setTimeout(function () { $('.pad').toggleClass('winner'); }, 400);
-    setTimeout(function () { $('.pad').toggleClass('winner') }, 600);
+    setTimeout(function () { $('.pad').toggleClass('winner'); }, 600);
     setTimeout(function () { $('.pad').toggleClass('winner'); }, 800);
   }
 
@@ -358,7 +358,7 @@ $(document).ready(function () {
   function renderScore() {
     if (hiScore !== null) {
       if (scoreBoard > hiScore) {
-        localStorage.setItem("hiScore", scoreBoard)
+        localStorage.setItem("hiScore", scoreBoard);
       }
     }
     hiScore = +localStorage.getItem('hiScore');
@@ -372,7 +372,7 @@ $(document).ready(function () {
       $('.pad1').toggleClass('pad1Flash');
       setTimeout(function () {
         $('.pad1').toggleClass('pad1Flash');
-      }, flashTime)
+      }, flashTime);
     }
   }
 
@@ -382,7 +382,7 @@ $(document).ready(function () {
       $('.pad2').toggleClass('pad2Flash');
       setTimeout(function () {
         $('.pad2').toggleClass('pad2Flash');
-      }, flashTime)
+      }, flashTime);
     }
   }
 
@@ -392,7 +392,7 @@ $(document).ready(function () {
       $('.pad3').toggleClass('pad3Flash');
       setTimeout(function () {
         $('.pad3').toggleClass('pad3Flash');
-      }, flashTime)
+      }, flashTime);
     }
   }
 
@@ -402,16 +402,16 @@ $(document).ready(function () {
       $('.pad4').toggleClass('pad4Flash');
       setTimeout(function () {
         $('.pad4').toggleClass('pad4Flash');
-      }, flashTime)
+      }, flashTime);
     }
   }
 
   //popover handling
-  $('[data-toggle="popover"]').popover()
-  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="popover"]').popover();
+  $('[data-toggle="tooltip"]').tooltip();
   $('.popover-dismiss').popover({
     trigger: 'focus key'
-  })
+  });
   $(document).keyup(function (event) {
     $('.popover').hide();
   });
@@ -422,5 +422,5 @@ $(document).ready(function () {
 
 //resets hi Score locally
 function resetHiScore() {
-  localStorage.setItem("hiScore", 0)
+  localStorage.setItem("hiScore", 0);
 }
