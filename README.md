@@ -15,7 +15,7 @@
 ----
 DonSimon can be played via a touchscreen/mouse, but playing Simon is all about mashing buttons!  Fortunately for us, most users will have a bunch of great buttons right in front of them - aka the keyboard.  Accordingly, keys "T", "Y", "G" and "H" map to the pads in the game.  (Look at the keys, it makes sense).
 
-Era toggles on the screen's left switch between 3 "eras" of Buchla synthesis:
+Era toggles on the screen's left switch between sounds of 3 "eras" of Buchla synthesis:
 - 1963 -  colorful sine wave based, frequency-modulated sounds of the Buchla 100.  Bongos!  
 - 1973 - featurning the complex waveshaping of the greatest analog oscillator there ever was, and likely will ever be, the holy grail: the Buchla 259
 - 2004 - Buchla goes digial.  Wavetables, aliasing, crispy bit-wise weirdness.  Good Times.
