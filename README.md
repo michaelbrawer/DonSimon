@@ -23,7 +23,7 @@ Era toggles on the screen's left switch between sounds of 3 "eras" of Buchla syn
 "Difficulty" toggle works two ways.  In easy mode, Simon increments by one move per turn, in difficult it increments by two.  In difficult mode, timers for flash duration and user count-out are also faster.
 
 ----
-### Next Steps: Unsolved problems and/or planned features:
+### Next Steps / Planned Features:
 - Getting some slicker animations involved, possibly using paper JS.
 - Mapping a larger, eight-pad game, to the principal touchkeys of a simulated Buchla 223e multi-dimensional   kinesthetic input tactile pad.
 - High-Score Persistance
@@ -31,4 +31,4 @@ Era toggles on the screen's left switch between sounds of 3 "eras" of Buchla syn
 - Freeform mode: just play the pads
 - Drummer mode: sync flashes interpolated drum patterns via Olivier Gillet's excellent open source code for [Grids](https://github.com/pichenettes/eurorack/tree/master/grids)
 
-#### [Trello Board for PseudoCode](https://trello.com/b/zKBZG8Tr/don-simon-project)
+#### [PseudoCode On Trello](https://trello.com/b/zKBZG8Tr/don-simon-project)
