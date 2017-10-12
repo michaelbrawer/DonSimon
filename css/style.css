@@ -22,7 +22,7 @@ div {
 h1{
   padding: 0;
   color: rgba(255, 254, 253, .9);
-  margin-top: 5px;
+  margin-top: 8px;
   margin-bottom: 5px;
   /* font-family: 'Abril Fatface', cursive; */
   font-family: 'Oswald', sans-serif;
@@ -42,6 +42,7 @@ div.page-header{
 }
 
 div#footer {
+  margin-top: 5px;
   margin-bottom: 5px;
 }
 
@@ -133,7 +134,7 @@ div.container{
   -webkit-transition: background 0.2s;
   -moz-transition: background 0.2s;
   width:150px;
-  height:200px;
+  height:210px;
 }
 
 /* off colors state  material ui level 300 FLASH 800 */
@@ -192,14 +193,21 @@ div.container{
 }
 
 .winner {
-  background-color: peachpuff;
-  transition: all 0.3s;
-  -webkit-transition: background 0.2s;
-  -moz-transition: background 0.2s;
+  background-color: rgba(115, 132, 141, 0.4);
+  background-image: url(https://i.imgur.com/ml1pcXk.png);
+  background-size: contain;
+  opacity: .3;
+  transition: background-color 0.3s;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
   /* -webkit-box-shadow: 0px 2px 15px 3px peachpuff;
   -moz-box-shadow: 0px 2px 15px 3px peachpuff;
   box-shadow: 0px 2px 15px 3px peachpuff; */
   /* animation-timing-function: ease-out; */
+}
+
+#pad1.winner, #pad4.winner {
+  background-image: url(https://i.imgur.com/qIcCRfn.jpg);
 }
 
 .loser {
