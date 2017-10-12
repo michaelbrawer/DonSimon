@@ -133,7 +133,8 @@ div.container{
 /* off colors state  material ui level 300 FLASH 800 */
 
 .pad1{
-  background-color: rgba(129, 199, 132,.9);
+  /* background-color: rgba(129, 199, 132,.9); */
+  background-color: rgba(115, 132, 141, 0.4);
 }
 
 .pad1Flash {
@@ -145,7 +146,8 @@ div.container{
 }
 
 .pad2 {
-  background-color: rgba(255, 241, 118,.9);
+  /* background-color: rgba(255, 241, 118,.9); */
+  background-color: rgba(115, 132, 141, 0.4);
 }
 
 .pad2Flash {
@@ -157,7 +159,8 @@ div.container{
 }
 
 .pad3{
-  background-color: rgba(229, 115, 115,.9);
+  /* background-color: rgba(229, 115, 115,.9); */
+  background-color: rgba(115, 132, 141, 0.4);
   
 }
 
@@ -170,7 +173,8 @@ div.container{
 }
 
 .pad4{
-  background-color: rgba(100, 181, 246,.9);
+  background-color: rgba(115, 132, 141, 0.4);
+  /* background-color: rgba(100, 181, 246,.9); */
   
 }
 
@@ -183,7 +187,6 @@ div.container{
 
 .winner {
   background-color: peachpuff;
-  border: black;
   transition: all 0.3s;
   -webkit-transition: background 0.2s;
   -moz-transition: background 0.2s;
@@ -194,7 +197,7 @@ div.container{
 }
 
 .loser {
-  background-color: rgba(115, 132, 141, 0.5);
+  background-color: rgba(115, 132, 141, 0.9);
   transition: all 1s;
   -webkit-transition: background 1s;
   -moz-transition: background 1s;
