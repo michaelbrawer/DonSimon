@@ -35,15 +35,14 @@ var currentSound;
 //holds crazy counter mode
 var crazyCounter;
 //holds hi score
-var hiScore = 0;
-
+var hiScore;
 //default state on page load...
 gameOn = false;
 simonCount = 1;
 currentSound = 'set1970';
 expertMode = false;
 scoreBoard = 0;
-hiScore = 0;
+hiScore = localStorage.getItem('hiScore');
 
 //jQuery wrapper function
 
@@ -336,9 +335,6 @@ $(document).ready(function () {
   //advance to next stage.
   function nextStage() {
     scoreBoard += scoreUp;
-    if (scoreBoard > hiScore){
-      hiScore = scoreBoard;
-    }
     simonData = [];
     userCount = 0;
     simonCount += countInteger;
@@ -361,11 +357,17 @@ $(document).ready(function () {
   function loseFlash() {
     $('.pad').toggleClass('loser');
     $('#display').text('play again? - click  / spacebar');
-    
+
   }
 
   function renderScore() {
-    $('.scoreBoard').text("HiScore:" + hiScore + " Score:" + scoreBoard);
+    if (hiScore !== null) {
+      if (scoreBoard > hiScore) {
+        localStorage.setItem("hiScore", scoreBoard)
+      }
+    }
+    hiScore = +localStorage.getItem('hiScore');
+    $('.scoreBoard').text("Hi-Score: " + hiScore + " Score: " + scoreBoard);
   }
 
   // function renderHiScore(){
@@ -422,10 +424,15 @@ $(document).ready(function () {
   $(document).keyup(function (event) {
     $('.popover').hide();
   });
+
   //render scoreboard on load.
   renderScore();
 });
 
+//resets hi Score locally
+function resetHiScore(){
+  localStorage.setItem("hiScore", 0)
+}
 //random timer for future crazy mode implementation
 function getCrazyCounter() {
   var newCrazy = (Math.random() * 450);
