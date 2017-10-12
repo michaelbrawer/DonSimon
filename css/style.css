@@ -168,7 +168,7 @@ div.container{
   cursor: pointer;
 }
 
-@media (min-width: 1900px){
+@media (min-width: 1290px){
   div.container{
     max-width: 800px;
   }
