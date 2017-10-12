@@ -35,21 +35,20 @@ var currentSound;
 //holds hi score
 var hiScore;
 
-//default state on page load...
-gameOn = false;
-simonCount = 1;
-currentSound = 'set1970';
-expertMode = false;
-scoreBoard = 0;
-hiScore = localStorage.getItem('hiScore');
 
 //jQuery wrapper function
 
 $(document).ready(function () {
 
-  /*----- cached element references -----*/
+  //default state on page load...
+  gameOn = false;
+  simonCount = 1;
+  currentSound = 'set1970';
+  expertMode = false;
+  scoreBoard = 0;
+  hiScore = localStorage.getItem('hiScore');
 
-  //array containing gamesound addresses
+  //object containing gamesound addresses
   var gameSounds = {
     initSound: {
       loadSound: new Howl({
