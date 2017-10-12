@@ -1,5 +1,3 @@
-/*----- constants -----*/
-
 /*----- app's state (variables) -----*/
 
 //sets score displayed on scoreboard
