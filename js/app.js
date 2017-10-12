@@ -422,7 +422,7 @@ $(document).ready(function () {
   $(document).keyup(function (event) {
     $('.popover').hide();
   });
-
+  
   //render scoreboard on load.
   renderScore();
 });
