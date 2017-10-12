@@ -173,6 +173,9 @@ div.container{
   div.container{
     max-width: 800px;
   }
+  .scoreboard {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 500px) {
