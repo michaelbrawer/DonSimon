@@ -30,3 +30,5 @@ Era toggles on the screen's left switch between sounds of 3 "eras" of Buchla syn
 - crazy counter mode
 - Freeform mode: just play the pads
 - Drummer mode: sync flashes interpolated drum patterns via Olivier Gillet's excellent open source code for [Grids](https://github.com/pichenettes/eurorack/tree/master/grids)
+
+#### [Trello Board for PseudoCode](https://trello.com/b/zKBZG8Tr/don-simon-project)
