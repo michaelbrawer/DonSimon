@@ -1,10 +1,8 @@
-
 html {
   height: 100%;
 }
 
 body {
-  /* padding: 0px 50px auto 50px; */
   font-family: 'Raleway', sans-serif;
   background-image: url(https://i.imgur.com/JV5PToT.jpg);
   background-size: cover;
@@ -24,7 +22,6 @@ h1{
   color: rgba(255, 254, 253, .9);
   margin-top: 8px;
   margin-bottom: 5px;
-  /* font-family: 'Abril Fatface', cursive; */
   font-family: 'Oswald', sans-serif;
   font-weight: 300;
   font-style: italic;
@@ -32,13 +29,11 @@ h1{
 }
 
 div.page-header{
-  /* background-color: rgba(98, 113, 120, .7); */
   background-color: rgba(21, 101, 192,.9);
   font-size: 36px;
   border-radius: 10px;
   margin: 5px 20px 0 20px;
   padding: 0;
-  /* padding-top: 2px; */
 }
 
 div#footer {
@@ -49,7 +44,6 @@ div#footer {
 span.text-muted {
   font-size: 22px;
 }
-
 
 div.container{
   max-width: 500px;
@@ -74,6 +68,7 @@ div.container{
   width:25%;
   padding:23%;
   margin: 2%;
+  background-color: rgba(115, 132, 141, 0.4);
   transition: all 0.15s;
   -webkit-transition: background 0.2s;
   -moz-transition: background 0.2s;
@@ -84,7 +79,6 @@ div.container{
   font-size: 20px;
   color: rgba(98, 113, 120, 1);
 }
-
 
 .btn-group{
   margin-bottom: 5px;
@@ -137,78 +131,30 @@ div.container{
   height:210px;
 }
 
-/* off colors state  material ui level 300 FLASH 800 */
-
-.pad1{
-  /* background-color: rgba(129, 199, 132,.9); */
-  background-color: rgba(115, 132, 141, 0.4);
-}
+/* off colors state  material ui level OFF 300 FLASH 800 */
 
 .pad1Flash {
   background-color: rgba(46, 125, 50,.9);
-  /* -webkit-box-shadow: 0px 2px 15px 3px rgba(129, 199, 132,.9);
-  -moz-box-shadow: 0px 2px 15px 3px rgba(129, 199, 132,.9);
-  box-shadow: 0px 2px 15px 3px rgba(129, 199, 132,.9); */
-  
-}
-
-.pad2 {
-  /* background-color: rgba(255, 241, 118,.9); */
-  background-color: rgba(115, 132, 141, 0.4);
 }
 
 .pad2Flash {
   background-color: rgba(249, 168, 37,.9);
-  /* -webkit-box-shadow: 0px 2px 15px 3px rgba(255, 241, 118,.9);
-  -moz-box-shadow: 0px 2px 15px 3px rgba(255, 241, 118,.9);
-  box-shadow: 0px 2px 15px 3px rgba(255, 241, 118,.9); */
-  
-}
-
-.pad3{
-  /* background-color: rgba(229, 115, 115,.9); */
-  background-color: rgba(115, 132, 141, 0.4);
-  
 }
 
 .pad3Flash {
   background-color: rgba(198, 40, 40,.9);
-  /* -webkit-box-shadow: 0px 2px 15px 3px rgba(229, 115, 115,.9);
-  -moz-box-shadow: 0px 2px 15px 3px rgba(229, 115, 115,.9);
-  box-shadow: 0px 2px 15px 3px rgba(229, 115, 115,.9); */
-  
-}
-
-.pad4{
-  background-color: rgba(115, 132, 141, 0.4);
-  /* background-color: rgba(100, 181, 246,.9); */
-  
 }
 
 .pad4Flash {
   background-color: rgba(21, 101, 192,.9);
-  /* -webkit-box-shadow: 0px 2px 15px 3px rgba(100, 181, 246,.9);
-  -moz-box-shadow: 0px 2px 15px 3px rgba(100, 181, 246,.9);
-  box-shadow: 0px 2px 15px 3px rgba(100, 181, 246,.9); */
 }
 
 .winner {
   background-color: rgba(115, 132, 141, 0.7);
-  /* background-image: url(https://i.imgur.com/ml1pcXk.png); */
-  /* background-size: contain;
-  opacity: .3; */
   transition: all 0.4s;
   -webkit-transition: background 0.4s;
   -moz-transition: background 0.4s;
-  /* -webkit-box-shadow: 0px 2px 15px 3px peachpuff;
-  -moz-box-shadow: 0px 2px 15px 3px peachpuff;
-  box-shadow: 0px 2px 15px 3px peachpuff; */
-  /* animation-timing-function: ease-out; */
 }
-
-/* #pad1.winner, #pad4.winner {
-  background-image: url(https://i.imgur.com/qIcCRfn.jpg);
-} */
 
 .loser {
   background-color: rgba(115, 132, 141, 0.9);
