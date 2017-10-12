@@ -76,7 +76,7 @@ div.container{
 
 .scoreBoard {
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   color: rgba(98, 113, 120, 1);
 }
 
@@ -96,6 +96,7 @@ div.container{
 }
 
 .btn {
+  margin-top: 12px;
   outline: none !important;
   border: none !important;
 }

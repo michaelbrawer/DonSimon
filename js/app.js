@@ -34,6 +34,8 @@ var expertMode;
 var currentSound;
 //holds crazy counter mode
 var crazyCounter;
+//holds hi score
+var hiScore;
 
 //default state on page load...
 gameOn = false;
@@ -41,6 +43,7 @@ simonCount = 1;
 currentSound = 'set1970';
 expertMode = false;
 scoreBoard = 0;
+hiScore = 0;
 
 //jQuery wrapper function
 
@@ -320,6 +323,7 @@ $(document).ready(function () {
     simonCount = 1;
     gameSounds[currentSound].loseSound.play()
     loseFlash();
+    renderScore();
   }
 
   // starts global countDown for user turn upon completion of simon render animation... 
@@ -332,6 +336,9 @@ $(document).ready(function () {
   //advance to next stage.
   function nextStage() {
     scoreBoard += scoreUp;
+    if (scoreBoard > hiScore){
+      hiScore = scoreBoard;
+    }
     simonData = [];
     userCount = 0;
     simonCount += countInteger;
@@ -354,11 +361,16 @@ $(document).ready(function () {
   function loseFlash() {
     $('.pad').toggleClass('loser');
     $('#display').text('play again? - click  / spacebar');
+    
   }
 
   function renderScore() {
-    $('.scoreBoard').text("Score: " + scoreBoard);
+    $('.scoreBoard').text("HiScore:" + hiScore + " Score:" + scoreBoard);
   }
+
+  // function renderHiScore(){
+  //   $('.scoreBoard').text("Hi-Score: " + hiScore);
+  // }
 
   // individual pad flash render functions... 
   function padOneFlash() {
@@ -410,7 +422,8 @@ $(document).ready(function () {
   $(document).keyup(function (event) {
     $('.popover').hide();
   });
-
+  //render scoreboard on load.
+  renderScore();
 });
 
 //random timer for future crazy mode implementation
