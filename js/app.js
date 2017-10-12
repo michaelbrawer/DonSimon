@@ -32,8 +32,6 @@ var countInteger;
 var expertMode;
 //soundSet currently active, targets gameSound array
 var currentSound;
-//holds crazy counter mode
-var crazyCounter;
 //holds hi score
 var hiScore;
 //default state on page load...
@@ -430,17 +428,6 @@ $(document).ready(function () {
 });
 
 //resets hi Score locally
-function resetHiScore(){
+function resetHiScore() {
   localStorage.setItem("hiScore", 0)
-}
-//random timer for future crazy mode implementation
-function getCrazyCounter() {
-  var newCrazy = (Math.random() * 450);
-  if (newCrazy < 150) {
-    newCrazy = 150
-  }
-  else if (newCrazy > 400) {
-    newCrazy = 400
-  }
-  crazyCounter = newCrazy
 }
