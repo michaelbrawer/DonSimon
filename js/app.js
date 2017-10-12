@@ -290,6 +290,13 @@ $(document).ready(function () {
     }
   }
 
+  // starts global countDown for user turn upon completion of simon render animation... 
+  function startTimer() {
+    $('#display').text('User Turn');
+    window.clearTimeout(clock);
+    clock = window.setTimeout(badClick, timerDuration + 1000)
+  }
+
   // compares user input to Simon Data;
   function checkClick() {
     if (userData === simonData[userCount]) {
@@ -317,13 +324,6 @@ $(document).ready(function () {
     gameSounds[currentSound].loseSound.play()
     loseFlash();
     renderScore();
-  }
-
-  // starts global countDown for user turn upon completion of simon render animation... 
-  function startTimer() {
-    $('#display').text('User Turn');
-    window.clearTimeout(clock);
-    clock = window.setTimeout(badClick, timerDuration + 1000)
   }
 
   //advance to next stage.
@@ -354,6 +354,7 @@ $(document).ready(function () {
 
   }
 
+  //updates / renders scoreboard data to page
   function renderScore() {
     if (hiScore !== null) {
       if (scoreBoard > hiScore) {
