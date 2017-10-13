@@ -360,7 +360,7 @@ $(document).ready(function () {
       }
     }
     hiScore = +localStorage.getItem('hiScore');
-    $('.scoreBoard').text('Hi-Score: ' + hiScore + " Score: " + scoreBoard);
+    $('.scoreBoard').text('HiScore:' + hiScore + "  Score:" + scoreBoard);
   }
 
   // individual pad flash render functions... 
