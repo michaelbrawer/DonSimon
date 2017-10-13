@@ -10,7 +10,7 @@
 ### Additional Libraries / Frameworks:
 - jQuery - for DOM traversal / event handling
 - Bootstrap - for styling / responsive box sizing
-- Howler JS - for audio implmentation
+- Howler JS - for audio implementation
 ----
 ### Getting Started: [Click Here](https://livefreela.github.io/DonSimon) to Play in Browser.
 ----
@@ -19,8 +19,8 @@ DonSimon can be played via a touchscreen/mouse, but playing Simon is all about m
 
 Era toggles on the screen's left switch between sounds of 3 "eras" of Buchla synthesis:
 - 1963 -  colorful sine wave based, frequency-modulated sounds of the Buchla 100.  Bongos!  
-- 1973 - featurning the complex waveshaping of the greatest analog oscillator there ever was, and likely will ever be, the holy grail: the Buchla 259.
-- 2004 - Buchla goes digial.  Wavetables, aliasing, crispy bit-wise weirdness.  Good Times.
+- 1973 - featuring the complex waveshaping of the greatest analog oscillator there ever was, and likely will ever be, the holy grail: the Buchla 259.
+- 2004 - Buchla goes digital.  Wavetables, aliasing, crispy bit-wise weirdness.  Good Times.
 
 "Difficulty" toggle works two ways.  In easy mode, Simon increments by one move per turn, in difficult it increments by two.  In difficult mode, timers for flash duration and user count-out are also faster.
 
@@ -30,7 +30,7 @@ Era toggles on the screen's left switch between sounds of 3 "eras" of Buchla syn
 - Mapping a larger, eight-pad game, to the principal touchkeys of a simulated Buchla 223e multi-dimensional   kinesthetic input tactile pad.
 - Crazy counter mode.
 - Freeform mode: just play the pads.
-- Drummer mode: sync flashes interpolated drum patterns / euclydian polyrhythms via Olivier Gillet's excellent open source code for [Grids](https://github.com/pichenettes/eurorack/tree/master/grids).
+- Drummer mode: sync flashes interpolated drum patterns / euclidian polyrhythms via Olivier Gillet's excellent open source code for [Grids](https://github.com/pichenettes/eurorack/tree/master/grids).
 
 ---
 ### Game Development:
