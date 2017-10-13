@@ -1,42 +1,41 @@
-/*----- app's state (variables) -----*/
-
-//sets score displayed on scoreboard
-var scoreBoard;
-//integer for scoreboard to increase
-var scoreUp;
-//sets length of turn
-var simonCount;
-//stores Simon Array
-var simonData;
-//holds keydown data
-var userData;
-// holds count of user presses
-var userCount;
-//duration for flash animation in ms
-var flashTime;
-// game in play
-var gameOn;
-//duration for coundown timer
-var timerDuration;
-//holds timer data for easy mode
-var easyTimer;
-//holds timer data for hard mode
-var hardTimer;
-//window timer for end-of-turn timeout
-var clock;
-//how many steps does each stage increment by
-var countInteger;
-//is expert mode engaged
-var expertMode;
-//soundSet currently active, targets gameSound array
-var currentSound;
-//holds hi score
-var hiScore;
-
-
 //jQuery wrapper function
 
 $(document).ready(function () {
+
+  /*----- app's state (variables) -----*/
+
+  //sets score displayed on scoreboard
+  var scoreBoard;
+  //integer for scoreboard to increase
+  var scoreUp;
+  //sets length of turn
+  var simonCount;
+  //stores Simon Array
+  var simonData;
+  //holds keydown data
+  var userData;
+  // holds count of user presses
+  var userCount;
+  //duration for flash animation in ms
+  var flashTime;
+  // game in play
+  var gameOn;
+  //duration for coundown timer
+  var timerDuration;
+  //holds timer data for easy mode
+  var easyTimer;
+  //holds timer data for hard mode
+  var hardTimer;
+  //window timer for end-of-turn timeout
+  var clock;
+  //how many steps does each stage increment by
+  var countInteger;
+  //is expert mode engaged
+  var expertMode;
+  //soundSet currently active, targets gameSound array
+  var currentSound;
+  //holds hi score
+  var hiScore;
 
   //default state on page load...
   gameOn = false;
