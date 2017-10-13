@@ -6,7 +6,7 @@
 - CSS
 - Javascript
 
-### Additional Frameworks:
+### Additional Libraries / Frameworks:
 - jQuery - for DOM traversal / event handling
 - Bootstrap - for styling / responsive box sizing
 - Howler JS - for audio implmentation
@@ -29,6 +29,6 @@ Era toggles on the screen's left switch between sounds of 3 "eras" of Buchla syn
 - Mapping a larger, eight-pad game, to the principal touchkeys of a simulated Buchla 223e multi-dimensional   kinesthetic input tactile pad.
 - crazy counter mode
 - Freeform mode: just play the pads
-- Drummer mode: sync flashes interpolated drum patterns via Olivier Gillet's excellent open source code for [Grids](https://github.com/pichenettes/eurorack/tree/master/grids)
+- Drummer mode: sync flashes interpolated drum patterns / euclydian polyrhythms via Olivier Gillet's excellent open source code for [Grids](https://github.com/pichenettes/eurorack/tree/master/grids)
 
 #### [PseudoCode On Trello](https://trello.com/b/zKBZG8Tr/don-simon-project)
