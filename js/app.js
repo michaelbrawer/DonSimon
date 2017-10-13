@@ -295,7 +295,7 @@ $(document).ready(function () {
     clock = window.setTimeout(badClick, timerDuration + 1000);
   }
 
-  // compares user input to Simon Data;
+  // compares user input to Simon Data...
   function checkClick() {
     if (userData === simonData[userCount]) {
       userCount += 1;
@@ -307,7 +307,7 @@ $(document).ready(function () {
     }
   }
 
-  //checks for win to advance stage;
+  //checks for win to advance stage...
   function winCheck() {
     if (userCount === simonData.length) {
       nextStage();
@@ -324,7 +324,7 @@ $(document).ready(function () {
     renderScore();
   }
 
-  //advance to next stage.
+  //advance to next stage...
   function nextStage() {
     scoreBoard += scoreUp;
     simonData = [];
@@ -336,7 +336,8 @@ $(document).ready(function () {
     setTimeout(getSimonData, flashTime * 2);
   }
 
-  //user input rendering functions//
+  //user input rendering functions:
+
   //stage advance / loss animation
   function winFlash() {
     setTimeout(function () { gameSounds[currentSound].winSound.play(); }, 300);
@@ -363,7 +364,7 @@ $(document).ready(function () {
     $('.scoreBoard').text('HiScore:' + hiScore + "  Score:" + scoreBoard);
   }
 
-  // individual pad flash render functions... 
+  // individual pad flash render functions:
   function padOneFlash() {
     if (gameOn) {
       gameSounds[currentSound].soundOne.play();
@@ -414,7 +415,7 @@ $(document).ready(function () {
     $('.popover').hide();
   });
 
-  //render scoreboard on load.
+  //render scoreboard on load
   renderScore();
 });
 
