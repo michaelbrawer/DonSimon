@@ -1,5 +1,6 @@
 # DonSimon: 
 ### *A Buchla Electric Music Box Themed Simon Clone.*
+![donSimon Screenshot](https://i.imgur.com/kFA2yZh.png)
 ---
 ### Core Technologies Used:
 - HTML
