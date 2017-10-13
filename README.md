@@ -34,5 +34,5 @@ Era toggles on the screen's left switch between sounds of 3 "eras" of Buchla syn
 #### [PseudoCode On Trello](https://trello.com/b/zKBZG8Tr/don-simon-project)
 
 ![TrelloBoard](https://i.imgur.com/mi8onq4.png)
-
+Initial Wireframe:
 ![Initial Wireframe](https://i.imgur.com/eRHTCYv.png)
