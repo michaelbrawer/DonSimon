@@ -12,7 +12,7 @@
 - Bootstrap - for styling / responsive box sizing
 - Howler JS - for audio implementation
 ----
-### Getting Started: [Click Here](https://livefreela.github.io/DonSimon) to Play in Browser.
+### Getting Started: [Click Here](https://michaelbrawer.github.io/DonSimon) to Play in Browser.
 ----
 
 DonSimon can be played via a touchscreen/mouse, but playing Simon is all about mashing buttons!  Fortunately for us, most users will have a bunch of great buttons right in front of them - aka the keyboard.  Accordingly, keys "T", "Y", "G" and "H" map to the pads in the game.  (Look at the keys, it makes sense).
